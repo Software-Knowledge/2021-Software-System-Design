@@ -15,3 +15,14 @@ Lec5-Document
    2. 工作分解和分配 Work breakdown and assignment.
    3. 部署后维护 Post-deployment maintenance.
 3. 软件体系结构文档提供了维护和修改决策的框架 Software architecture documentation provides a framework for maintenance and modification decisions.
+
+## What to document?
+1. Many things worth of documenting such as:
+   1. Component interfaces and dependencies
+   2. Subsystems constraints
+   3. Test scenarios.
+   4. Contextual information surrounding design decisions
+2. Several factors affect the decision of what to document:
+   1. Complexity of the architecture being documented
+   2. Longevity of an application
+   3. Based on the expected use of documentation by stakeholders
