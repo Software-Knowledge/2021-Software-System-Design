@@ -1,59 +1,73 @@
-lec8-Principles of Software Design
+lec8-Principles of Software Design 软件设计原理
 ---
 
-# 1. Software Design
-1. Requirements defines
-   1. The goals the system needs to satisfy.
-2. Specification defines
-   1. The externally-observable behaviour of the system.
-3. Architecture defines
-   1. The major system-level components
-   2. Their methods of interaction
-   3. Technology used
-4. Design defines
-   1. how the job will get done
-   2. The code that needs to be written.
-   3. We will focus exclusively on OO design.
+# 1. Software Design 软件设计
+1. “需求”定义了 Requirements defines
+   1. 系统需要满足的目标。The goals the system needs to satisfy.
+   2. 用户需求指出了目标，比如在线会议的应用目标是希望能够看到开会人员、听到声音和共享屏幕等等。
+2. “规约”定义了 Specification defines
+   1. 系统的外部可观察行为。The externally-observable behaviour of the system.
+3. “架构”定义了 Architecture defines
+   1. 系统一级的主要组成部分 The major system-level components
+   2. 各部分的互动方式 Their methods of interaction
+   3. 使用的技术 Technology used
+   4. 比如在线会议软件，需要前端部分、操作系统调用功能部分、网络部分以及部分之间如何联系，使用什么技术
+4. “设计”定义了 Design definesDesign defines
+   1. 如何完成任务 how the job will get done
+   2. 需要写的代码The code that needs to be written.
+   3. 我们将专门关注OO设计 We will focus exclusively on OO design.
 
-# 2. Object Oriented Design
-1. The process of applying implementation constraints to the conceptual model produced in object-oriented analysis.
-2. describing the classes we will build our system out of in terms of their operations and attributes.
-3. Adding classes that aren't obviously part of the domain, like abstract classes and interfaces
-4. Describing how classes make up components.
+# 2. 面向对象设计 Object Oriented Design
+1. 将实现的约束条件应用到面向对象分析所产生的概念模型的过程 The process of applying implementation constraints to the conceptual model produced in object-oriented analysis.
+   1. 概念模型可以对应到问题域，比如数据库、文件、用户界面和算法等等
+   2. 添加上约束条件，比如性能约束、应对变化的需求(算法需要多种不同版本的实现)
+   3. 我们更关心如何将这些约束条件应用到OO所产生的概念模型的过程，是一个问题驱动的。
+2. 用方法和属性来描述用于构成系统的类 describing the classes we will build our system out of in terms of their operations and attributes. 
+3. 概念模型上已经有一些类了，这些类是属于领域的类
+4. 添加不明显属于领域的类，比如抽象类和接口 Adding classes that aren't obviously part of the domain, like abstract classes and interfaces
+5. 描述类是如何构成组件的 Describing how classes make up components.
 
-# 3. Where OOD Fits
+# 3. OOD适合的地方 Where OOD Fits
 ![](img/lec8/1.png)
 
-# 4. Finding Appropriate Objects
-1. Hard part about OOD is decomposing a system into objects.
-2. Many objects come directly from the
-   1. analysis model
-   2. or from
-   3. the implementation space (databases, files, UIs, IPC, …)
-3. As well, there are other classes that have no such counterparts.
-   1. used to generalize what would otherwise be an overly-specific design
-   2. e.g., use of Strategy
-      1. if you think an algorithm is likely to change
-      2. add classes to implement a "strategy" pattern
+1. 首先已经有一个系统架构(系统架构中有不同的组件)
+2. 然后针对问题分析，得到OOA的概念模型
+3. 然后我们进行OOD的面向对象设计，添加了一些不明显属于领域的类
+4. 最后我们可以直接对应到OOP
+5. TODO
 
-# 5. The Bad News
-1. There is no step-by-step method to get from the OOA to an OOD.
-2. At least the OOA gives you the problem domain component in a fairly direct manner.
-3. For the rest, you need experience.
+# 4. 寻找合适的对象 Finding Appropriate Objects
+1. OOD的难点是将系统分解为对象。Hard part about OOD is decomposing a system into objects.
+2. 许多对象直接来自 Many objects come directly from the
+   1. 分析模型 analysis model
+   2. 或来自 or from
+   3. 实现空间（数据库，文件，UI，IPC等） the implementation space (databases, files, UIs, IPC, …)
+3. 同样，还有其他类没有这样的对应类。As well, there are other classes that have no such counterparts.
+   1. 用来使可能过于特殊的设计变得更为通用 used to generalize what would otherwise be an overly-specific design
+   2. 例如，使用策略模式 e.g., use of Strategy
+      1. 如果您认为算法可能会发生变化 if you think an algorithm is likely to change
+      2. 添加类以实现“策略”模式 add classes to implement a "strategy" pattern
+
+# 5. 经验至关重要
+1. 从OOA到OOD，没有循序渐进的简单方法There is no step-by-step method to get from the OOA to an OOD.
+   1. 至少OOA以相当直接的方式给出了问题域组件 At least the OOA gives you the problem domain component in a fairly direct manner.
+   2. 对于其他部分，则需要经验 For the rest, you need experience.
 
 ![](img/lec8/2.png)
 
 # 6. Experience
-1. Seasoned designers see the same old problems come up again and again:
-   1. how to design the classes for my 5th user interface
-   2. how to design the classes to support persistence to a database for the 3rd time
-   3. how to organize classes for reporting for the 5th time
-2. Each time a similar problem comes up, designers will typically start with something that has worked for them before
-   1. but then usually add a wrinkle inspired by something they could have done better the last time
-3. Technology keeps changing under our feet, and so our design experience is quickly made obsolete
-   1. (3-5 year half-life)
+1. 经验丰富的设计师看到同样的老问题一次又一次的出现 Seasoned designers see the same old problems come up again and again:
+   1. 如何设计我的第五个用户界面的类 how to design the classes for my 5th user interface
+   2. 如何第三次设计支持持久化到数据库的类 how to design the classes to support persistence to a database for the 3rd time
+   3. 如何组织班级进行第五次汇报工作 how to organize classes for reporting for the 5th time
+2. 每次遇到类似的问题，设计师一般都会从之前行之有效的东西入手 Each time a similar problem comes up, designers will typically start with something that has worked for them before
+   1. 但通常会体会到上一次他们可以做得更好 but then usually add a wrinkle inspired by something they could have done better the last time
+   2. 技术在我们脚下不断变化，所以我们的设计经验很快就被淘汰了 Technology keeps changing under our feet, and so our design experience is quickly made obsolete(3-5 year half-life)
+   3. 但设计原则以及一些经典的设计经验不会褪色
 
 # 7. 本节内容
+> 设计模式是设计原则的体现
+
 1. 面向对象设计原则概述
 2. 单一职责原则
 3. 开闭原则
@@ -67,113 +81,137 @@ lec8-Principles of Software Design
 
 ### 7.1.1. 软件的可维护性和可复用性
 1. 知名软件大师Robert C.Martin认为一个可维护性 (Maintainability) 较低的软件设计，通常由于如下4个原因造成：
-   1. 过于僵硬(Rigidity)
-   2. 过于脆弱(Fragility)
-   3. 复用率低(Immobility)
-   4. 黏度过高(Viscosity)
+   1. 过于僵硬(Rigidity)：硬编码等 TODO
+   2. 过于脆弱(Fragility)：软件一个部分的修改会影响另一个未预期的部分
+   3. 复用率低(Immobility)：期望类和子系统可以作为黑盒使用
+   4. 黏度过高(Viscosity)：在架构层面上，如果修改时需要修改整体的架构
+   5. 降低模块(类)之间的耦合度，希望达成可复用的可维护性
 2. 软件工程和建模大师Peter Coad认为，一个好的系统设计应该具备如下三个性质：
    1. 可扩展性(Extensibility)
    2. 灵活性(Flexibility)
    3. 可插入性(Pluggability)
-3. 软件的复用(Reuse)或重用拥有众多优点，如可以提高软件的开发效率，提高软件质量，节约开发成本，恰当的复用还可以改善系统的可维护性。
-4. 面向对象设计复用的目标在于实现支持可维护性的复用。
-5. 在面向对象的设计里面，可维护性复用都是以面向对象设计原则为基础的，这些设计原则首先都是复用的原则，遵循这些设计原则可以有效地提高系统的复用性，同时提高系统的可维护性。
-6. 面向对象设计原则也是对系统进行合理重构的指南针，重构(Refactoring)是在不改变软件现有功能的基础上，通过调整程序代码改善软件的质量、性能，使其程序的设计模式和架构更趋合理，提高软件的扩展性和维护性。
+3. **软件的复用(Reuse)或重用**拥有众多优点，如可以提高软件的开发效率，提高软件质量，节约开发成本，**恰当的复用还可以改善系统的可维护性**。
+   1. 部分复用会破坏系统的可维护性，A和B修改C，如果A需要C多提供一个行为，但是B不需要则会出现问题。
+   2. 可维护性和可维护性虽然有共性，但是是独立的属性。
+4. 面向对象设计复用的目标在于**实现支持可维护性的复用**。
+5. 在面向对象的设计里面，**可维护性复用都是以面向对象设计原则为基础的**，这些设计原则首先都是复用的原则，遵循这些设计原则可以有效地提高系统的复用性，同时提高系统的可维护性。
+6. 面向对象设计原则也是对系统进行合理重构的指南针，**重构(Refactoring)**是**在不改变软件现有功能的基础上，通过调整程序代码改善软件的质量、性能，使其程序的设计模式和架构更趋合理，提高软件的扩展性和维护性。**
 
 ## 7.2. 面向对象设计原则简介
 1. 常用的面向对象设计原则包括7个，这些原则并不是孤立存在的，它们相互依赖，相互补充。
+2. 原则之间也会有相互的作用
 
 ![](img/lec8/3.png)
 
 ## 7.3. 单一职责原则
 
 ### 7.3.1. 单一职责原则定义
-1. 单一职责原则(Single Responsibility Principle, SRP)定义如下：一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中。
-2. 其英文定义为：Every object should have a single responsibility, and that responsibility should be entirely encapsulated by the class.
-3. 另一种定义方式如下：
-   1. 就一个类而言，应该仅有一个引起它变化的原因。
-4. 其英文定义为：There should never be more than one reason for a class to change.
+1. 单一职责原则(Single Responsibility Principle, SRP)定义如下：一个对象应该只包含**单一的职责**，并且该职责被完整地封装在一个类中。
+2. 其英文定义为：Every object should have a **single responsibility**, and that responsibility should be entirely encapsulated by the class.
+3. 另一种定义方式如下：就一个类而言，应该**仅有一个引起它变化的原因**。
+4. 其英文定义为：There should **never be more than one reason for a class to change**.
 
 ### 7.3.2. 单一职责原则分析
-1. 一个类（或者大到模块，小到方法）承担的职责越多，它被复用的可能性越小，而且如果一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作。
-2. 类的职责主要包括两个方面：数据职责和行为职责，数据职责通过其属性来体现，而行为职责通过其方法来体现。
-3. 单一职责原则是实现高内聚、低耦合的指导方针，在很多代码重构手法中都能找到它的存在，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。
+1. **一个类（或者大到模块，小到方法）承担的职责越多，它被复用的可能性越小**，而且如果一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作。
+2. 类的职责主要包括两个方面：
+   1. **数据职责**：数据职责通过其属性来体现。
+   2. **行为职责**：而行为职责通过其方法来体现。
+3. 单一职责原则是实现**高内聚、低耦合**的指导方针，在很多代码重构手法中都能找到它的存在，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。
 
 ### 7.3.3. 单一职责原则实例
 1. 某基于Java的C/S系统的"登录功能"通过如下登录类(Login)实现：
+   1. init：用来初始化界面控件，如按钮等
+   2. diaplay：显示提示窗口，添加控件
+   3. validata：是供界面检查使用的
+   4. getConnection：用来连接数据库
+   5. findUser：用来查询用户
+   6. main：主函数
+   7. 这样的设计是不好的，这个类包含了过多的职责
 
 ![](img/lec8/4.png)
 
-2. 现使用单一职责原则对其进行重构。
+2. 现使用单一职责原则对其进行重构
+   1. 我们将login类拆分成了三个类
+   2. 使用分层的方式修改
 
 ![](img/lec8/5.png)
 
 ## 7.4. 开闭原则
+> 对可变性封装原则
 
 ### 7.4.1. 开闭原则定义
-1. 开闭原则(Open-Closed Principle, OCP)定义如下：一个软件实体应当对扩展开放，对修改关闭。也就是说在设计一个模块的时候，应当使这个模块可以在不被修改的前提下被扩展，即实现在不修改源代码的情况下改变这个模块的行为。
-2. 其英文定义为：Software entities should be open for extension, but closed for modification.
+1. 开闭原则(Open-Closed Principle, OCP)定义如下：一个软件实体应当**对扩展开放，对修改关闭**。也就是说在设计一个模块的时候，应当使这个模块可以在不被修改的前提下被扩展，即实现在不修改源代码的情况下改变这个模块的行为。
+2. 其英文定义为：Software entities should be **open for extension**, but **closed for modification**.
 
 ### 7.4.2. 开闭原则分析
-1. 开闭原则由Bertrand Meyer于1988年提出，它是面向对象设计中最重要的原则之一。
-2. 在开闭原则的定义中，软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。
+1. 开闭原则由**Bertrand Meyer**于1988年提出，它是面向对象设计中最重要的原则之一。
+2. 在开闭原则的定义中，**软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类**。
 
 ### 7.4.3. 开闭原则分析
-1. 抽象化是开闭原则的关键。
-2. 开闭原则还可以通过一个更加具体的"对可变性封装原则"来描述，对可变性封装原则(Principle of Encapsulation of Variation, EVP)要求找到系统的可变因素并将其封装起来。
+1. **抽象化**是开闭原则的关键。
+2. 开闭原则还可以通过一个更加具体的"**对可变性封装原则**"来描述，对可变性封装原则(**Principle of Encapsulation of Variation, EVP**)要求找到系统的可变因素并将其封装起来。
+3. 我们需要知道系统的哪些部门是变化的
+4. 开闭原则也是对单一职责原则的增强
+5. 里氏替换原则和依赖倒置原则都是开闭原则的具体实现。
 
 ### 7.4.4. 开闭原则实例
 1. 某图形界面系统提供了各种不同形状的按钮，客户端代码可针对这些按钮进行编程，用户可能会改变需求要求使用不同的按钮，原始设计方案如图所示
+   1. `+`表示公有
+   2. `-`表示私有
 
 ![](img/lec8/6.png)
 
-2. 现对该系统进行重构，使之满足开闭原则的要求。
+2. 现对该系统进行重构，使之满足开闭原则的要求：尝试将代码变为数据(配置文件，Config.xml)，结合Java的反射机制来完成(TODO)
 
 ![](img/lec8/7.png)
 
-## 7.5. 里氏替代原则
+## 7.5. 里氏代换原则
 
 ### 7.5.1. 里氏代换原则定义
 1. 里氏代换原则(Liskov Substitution Principle, LSP)有两种定义方式，第一种定义方式相对严格，其定义如下：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o2都代换成o1时，程序P的行为没有变化，那么类型S是类型T的子类型。
 2. 其英文定义为：If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.
-3. 第二种更容易理解的定义方式如下：所有引用基类（父类）的地方必须能透明地使用其子类的对象。
+3. 第二种更容易理解的定义方式如下：**所有引用基类（父类）的地方必须能透明地使用其子类的对象**。
 4. 其英文定义为：Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
+5. 是实现开闭原则的基础
 
 ### 7.5.2. 里氏代换原则分析
-1. 里氏代换原则可以通俗表述为：在软件中如果能够使用基类对象，那么一定能够使用其子类对象。把基类都替换成它的子类，程序将不会产生任何错误和异常，反过来则不成立，如果一个软件实体使用的是一个子类的话，那么它不一定能够使用基类。
-2. 里氏代换原则是实现开闭原则的重要方式之一，由于使用基类对象的地方都可以使用子类对象，因此在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象。
+1. 里氏代换原则可以通俗表述为：在**软件中如果能够使用基类对象，那么一定能够使用其子类对象。把基类都替换成它的子类**，程序将不会产生任何错误和异常，反过来则不成立，如果一个软件实体使用的是一个子类的话，那么它不一定能够使用基类。
+2. 里氏代换原则是实现开闭原则的重要方式之一，由于使用基类对象的地方都可以使用子类对象，因此**在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象**。
 3. 里氏代换原则由2008年图灵奖得主、美国第一位计算机科学女博士、麻省理工学院教授Barbara Liskov和卡内基.梅隆大学Jeannette Wing教授于1994年提出。
 4. 其原文如下：Let q(x) be a property provable about objects x of type T. Then q(y) should be true for objects y of type S where S is a subtype of T.
+5. 子类不应该是父类的功能的扩展，我们可以使用组合的方式来扩展功能。
 
 ### 7.5.3. 里氏替代原则实例
 1. 某系统需要实现对重要数据（如用户密码）的加密处理，在数据操作类(DataOperator)中需要调用加密类中定义的加密算法，系统提供了两个不同的加密类，CipherA和CipherB，它们实现不同的加密方法，在DataOperator中可以选择其中的一个实现加密操作。如图所示：
 
 ![](img/lec8/8.png)
 
+2. 也可以为CipherA和CipherB设计一个共同的父类，下面是指CipherB是在CipherA的基础上加密。
+
 ![](img/lec8/9.png)
 
 ## 7.6. 依赖倒转原则
 
 ### 7.6.1. 依赖倒转原则定义
-1. 依赖倒转原则(Dependence Inversion Principle, DIP)的定义如下：高层模块不应该依赖低层模块，它们都应该依赖抽象。抽象不应该依赖于细节，细节应该依赖于抽象。
+1. 依赖倒转原则(Dependence Inversion Principle, DIP)的定义如下：高层模块**不应该依赖低层模块**，它们都应该**依赖抽象**。**抽象不应该依赖于细节，细节应该依赖于抽象**。
 2. 其英文定义为：High level modules should not depend upon low level modules, both should depend upon abstractions. Abstractions should not depend upon details, details should depend upon abstractions.
 3. 另一种表述为：要针对接口编程，不要针对实现编程。
 4. 其英文定义为：Program to an interface, not an implementation.
 
 ### 7.6.2. 依赖倒转原则分析
-1. 依赖倒转原则是Robert C. Martin在1996年为《C++ Reporter》所写的专栏Engineering Notebook的第三篇，后来加入到他在2002年出版的经典著作《Agile Software Development, Principles, Patterns, and Practices》中。
+1. 依赖倒转原则是Robert C. Martin在1996年为《C++ Reporter》所写的专栏Engineering Notebook的第三篇，后来加入到他在2002年出版的经典著作《**Agile Software Development, Principles, Patterns, and Practices**》中。
 
 ### 7.6.3. 依赖倒转原则分析
-1. 简单来说，依赖倒转原则就是指：代码要依赖于抽象的类，而不要依赖于具体的类；要针对接口或抽象类编程，而不是针对具体类编程。
-2. 实现开闭原则的关键是抽象化，并且从抽象化导出具体化实现，如果说开闭原则是面向对象设计的目标的话，那么依赖倒转原则就是面向对象设计的主要手段。
-3. 依赖倒转原则的常用实现方式之一是在代码中使用抽象类，而将具体类放在配置文件
-   1. 将抽象放进代码，将细节放进元数据
-   2. Put Abstractions in Code, Details in Metadata
+1. 简单来说，依赖倒转原则就是指：**代码要依赖于抽象的类，而不要依赖于具体的类；要针对接口或抽象类编程，而不是针对具体类编程**。
+2. 实现开闭原则的关键是抽象化，并且从抽象化导出具体化实现，如果说**开闭原则是面向对象设计的目标的话，那么依赖倒转原则就是面向对象设计的主要手段**。
+3. 依赖倒转原则的常用实现方式之一是**在代码中使用抽象类，而将具体类放在配置文件**
+   1. **将抽象放进代码，将细节放进元数据**
+   2. **Put Abstractions in Code, Details in Metadata**
    3. 《程序员修炼之道：从小工到专家》(The Pragmatic programmer: from journeyman to master) 
 4. 类之间的耦合
-   1. 零耦合关系
-   2. 具体耦合关系
-   3. 抽象耦合关系
+   1. **零耦合**关系：最好情况
+   2. **具体耦合**关系
+   3. **抽象耦合**关系：依赖倒转要求至少一端是抽象的
 5. 依赖倒转原则要求客户端依赖于抽象耦合，以抽象方式耦合是依赖倒转原则的关键。
 6. 依赖注入
    1. 构造注入(Constructor Injection)：通过**构造函数**注入实例变量。

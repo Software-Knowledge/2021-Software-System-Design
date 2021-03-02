@@ -3,278 +3,278 @@ Lec5-Description
 1. 梁鹏 武汉大学计算机学院
 
 # 1. Overview
-1. What is an architecture description?
-2. ISO standard for architecture description
-3. Arch. representation in architecture views
-4. How to obtain a set of architecture views
+1. 什么是架构描述？ What is an architecture description?
+2. ISO标准的体系结构描述 ISO standard for architecture description
+3. 架构视图中的表示形式 Arch. representation in architecture views
+4. 如何获取一组架构视图 How to obtain a set of architecture views
 
-# 2. What is an architecture description?
+# 2. 什么是架构描述？What is an architecture description?
 
-## 2.1. Software design in UML
-1. Class diagrams, state diagrams, sequence diagram, etc
-2. Who can read those diagrams?
-3. Which type of questions do they answer?
-4. Do they provide enough information?
+## 2.1. UML中的软件设计 Software design in UML
+1. 类图，状态图，顺序图等 Class diagrams, state diagrams, sequence diagram, etc
+2. 谁能看懂那些图表？ Who can read those diagrams?
+3. 他们回答哪种类型的问题？Which type of questions do they answer?
+4. 他们提供足够的信息吗？ Do they provide enough information?
 
-## 2.2. Who can read those diagrams?
-1. Designer, programmer, tester, maintainer, etc
-2. Client?
-3. User?
+### 2.1.1. Who can read those diagrams?
+1. 设计人员，程序员，测试人员，维护人员等 Designer, programmer, tester, maintainer, etc
+2. 客户？Client?
+3. 用户？User?
 
-## 2.3. Which type of questions do they answer?
-1. How much will it cost?
-2. How secure and reliable will the system be?
-3. How about maintenance cost?
-4. How to evolve the system to meet new requirements?
-5. What if requirement A is replaced by requirement B?
+### 2.1.2. 他们回答哪种类型的问题？Which type of questions do they answer?
+1. 它要花多少钱？How much will it cost?
+2. 系统的安全性和可靠性如何？How secure and reliable will the system be?
+3. 维修费用如何？How about maintenance cost?
+4. 如何发展系统以满足新的需求？How to evolve the system to meet new requirements?
+5. 如果将需求A替换为需求B怎么办？What if requirement A is replaced by requirement B?
 
-## 2.4. Building architecture
+## 2.2. 建筑结构 Building architecture
 ![](img/lec5/1.png)
 
-## 2.5. Analogy with building architecture
-1. Overall picture of building (client)
-2. Front view (client, "beauty" committee)
-3. Separate picture for water supply (plumber)
-4. Separate picture for electrical wiring (electrician)
-5. etc
+## 2.3. 类比建筑 Analogy with building architecture
+1. 建筑物总体图（客户）Overall picture of building (client)
+2. 前视图（客户，“美容”委员会）Front view (client, "beauty" committee)
+3. 水的独立图片（水管工）Separate picture for water supply (plumber)
+4. 电气接线图（电工）Separate picture for electrical wiring (electrician)
+5. 等等 etc
 
-## 2.6. Architecture presentations in practice
-1. By and large two flavors:
-   1. Powerpoint slides (box and line) – for managers, users, consultants, etc
-   2. UML diagrams in UML notations, for technicians
-2. A small sample in practice …
+## 2.4. 实践中的架构演示 Architecture presentations in practice
+1. 大体上有两种口味：By and large two flavors:
+   1. Powerpoint幻灯片（框和行）–适用于经理，用户，顾问等 Powerpoint slides (box and line) – for managers, users, consultants, etc
+   2. 适用于技术人员的UML表示法中的UML图 UML diagrams in UML notations, for technicians
+2. 实践中的一小部分 A small sample in practice …
 
-### 2.6.1. Eclipse 1.0 architecture
+### 2.4.1. Eclipse 1.0 architecture
 ![](img/lec5/2.png)
 
-### 2.6.2. Eclipse 3.0 architecture (evolution)
+### 2.4.2. Eclipse 3.0 architecture (evolution)
 ![](img/lec5/3.png)
 
-### 2.6.3. 问题
+### 2.4.3. 问题
 1. 从Eclipse 1.0到3.0，其软件体系结构设计的主要变化是什么？为什么？
 
-### 2.6.4. Earth Observing System
+### 2.4.4. Earth Observing System
 ![](img/lec5/4.png)
 
-### 2.6.5. Decision-Making System
+### 2.4.5. Decision-Making System
 ![](img/lec5/5.png)
 
-### 2.6.6. ebXML Framework
+### 2.4.6. ebXML Framework
 ![](img/lec5/6.png)
 
-### 2.6.7. So
-1. Different representations
-2. For different people
-3. For different purposes
+### 2.4.7. So
+1. 不同的表示 Different representations
+2. 对于不同的人 For different people
+3. 为了不同的目的 For different purposes
 
-# 3. ISO standard for architecture description
+# 3. ISO标准的体系结构描述 ISO standard for architecture description
 
-## 3.1. Conceptual model of architecture description [from ISO Std 42010]
+## 3.1. 架构描述的概念模型[摘自ISO Std 42010] Conceptual model of architecture description [from ISO Std 42010]
 ![](img/lec5/7.png)
 
-## 3.2. Think about model as template
+## 3.2. 考虑将模型作为模板 Think about model as template
 ![](img/lec5/8.png)
 
 ## 3.3. 问题
 1. 不同涉众（stakeholders）有不同的关注点，从不同的视角（viewpoints）来看待系统的体系结构设计，是否能采用同一种描述方式来描述系统？
 
-## 3.4. Some terms/definitions (from ISO standard)
-1. System stakeholder: individual, team, organization, or classes thereof, anyone having an interest in a system
-2. View: expresses the architecture of a system from the perspective of specific system concerns
-3. Viewpoint: establishes the conventions for the construction, interpretation and use of architecture views to frame specific system concerns
+## 3.4. 一些术语/定义（来自ISO标准）Some terms/definitions (from ISO standard)
+1. 系统利益相关者：个人，团队，组织或其类，对系统感兴趣的任何人 System stakeholder: individual, team, organization, or classes thereof, anyone having an interest in a system
+2. 视图：从特定系统关注点的角度表达系统的体系结构 View: expresses the architecture of a system from the perspective of specific system concerns
+3. 视角：建立用于构造，解释和使用体系结构视图的约定，以构架特定的系统问题 Viewpoint: establishes the conventions for the construction, interpretation and use of architecture views to frame specific system concerns
 4. view : viewpoint :: program : programming language
 5. view : viewpoint :: map : legend
 
-## 3.5. Possible concerns (QAs from ISO standard)
-1. External quality
-   1. Development cost
-   2. Customer experience (usability)
-   3. Availability
-   4. Performance
-2. Internal quality
-   1. Evolvability
-   2. Maintainability
-   3. Testability
-   4. Changeability
+## 3.5. 可能的担忧（ISO标准的质量保证） Possible concerns (QAs from ISO standard)
+1. 外部质量 External quality
+   1. 开发费用 Development cost
+   2. 客户体验（可用性）Customer experience (usability)
+   3. 可用性 Availability
+   4. 表现 Performance
+2. 内部质量 Internal quality
+   1. 进化性 Evolvability
+   2. 可维护性 Maintainability
+   3. 可测性 Testability
+   4. 可变性 Changeability
 
-## 3.6. The twin peaks
+## 3.6. The twin peaks 双子峰
 ![](img/lec5/9.png)
 
-## 3.7. Quality attribute Scenarios
-1. Quality attributes can be made SMART by defining appropriate scenarios
-2. Quality attribute scenarios are defined by:
-   1. The source of the stimulus: Human or machine
-   2. The stimulus (event)
-   3. The environment or condition where the stimulus occurs
-   4. The response measure: Time, value and location
+## 3.7. 质量属性方案 Quality attribute Scenarios
+1. 通过定义适当的方案，可以使质量属性更智能 Quality attributes can be made SMART by defining appropriate scenarios
+2. 质量属性方案的定义如下：Quality attribute scenarios are defined by:
+   1. 刺激的源头：人还是机器 The source of the stimulus: Human or machine
+   2. 刺激（事件）The stimulus (event)
+   3. 刺激发生的环境或条件 The environment or condition where the stimulus occurs
+   4. 响应度量：时间，价值和位置 The response measure: Time, value and location
 3. 系统的非功能属性可以基于应用场景（scenarios）来量化
 
-## 3.8. What is a scenario in architecture design
-1. Scenarios are brief narratives of expected or anticipated use of a system from both development and end-user viewpoints.
+## 3.8. 建筑设计中的场景是什么 What is a scenario in architecture design
+1. 场景是从开发和最终用户的角度对系统的预期或预期使用的简要叙述。Scenarios are brief narratives of expected or anticipated use of a system from both development and end-user viewpoints.
 2. 从开发和用户视角来看系统的使用
 3. 是关于系统使用的具体描述
 4. 超市系统每晚12点备份当天交易数据
 5. 查看双11 22点峰值的红包堵塞节点
 
-## 3.9. Example Performance Scenarios
+## 3.9. 性能方案示例 Example Performance Scenarios
 ![](img/lec5/10.png)
 ![](img/lec5/11.png)
 
-## 3.10. Important business-related QAs
-1. Time-to-market
-2. Cost price
-3. Return on Investment (ROI)
-4. Total Cost of Ownership (TCO)
-5. Lifetime of the system
-6. Integration with existing (legacy) systems
-7. Marketing features
-8. Etc.
+## 3.10. 重要的业务相关质量保证 Important business-related QAs
+1. 上市时间 Time-to-market
+2. 成本价 Cost price
+3. 投资回报率（ROI） Return on Investment (ROI)
+4. 总拥有成本（TCO） Total Cost of Ownership (TCO)
+5. 系统寿命 Lifetime of the system
+6. 与现有（旧版）系统集成 Integration with existing (legacy) systems
+7. 营销特色 Marketing features
+8. 等等。Etc.
 
-## 3.11. Important Design-time QAs
+## 3.11. 重要的设计时质量保证 Important Design-time QAs
 ![](img/lec5/12.png)
 
-## 3.12. Important Run-time QAs
+## 3.12. 重要的运行时质量保证 Important Run-time QAs
 ![](img/lec5/13.png)
 
-## 3.13. Context of architecture description [from Std 42010]
+## 3.13. 体系结构描述的上下文[摘自Std 42010] Context of architecture description [from Std 42010]
 ![](img/lec5/14.png)
 
-## 3.14. Stakeholders
-1. Customer
-2. User
-3. Architect
-4. Requirements engineer
-5. Designer
-6. Implementer
-7. Tester, integrator
-8. Maintainer
-9. Product manager
-10. Quality assurance people
+## 3.14. 利益相关者 Stakeholders
+1. 顾客 Customer
+2. 用户 User
+3. 建筑师 Architect
+4. 需求工程师 Requirements engineer
+5. 设计师 Designer
+6. 实施者 Implementer
+7. 测试仪，积分仪 Tester, integrator
+8. 维护者 Maintainer
+9. 产品经理 Product manager
+10. 质量保证人 Quality assurance people
 
-## 3.15. Viewpoint specification
-1. Viewpoint name
-2. Stakeholders addressed
-3. Concerns addressed
-4. Language, modeling techniques
+## 3.15. 视角规范 Viewpoint specification
+1. 视点名称 Viewpoint name
+2. 利益相关者 Stakeholders addressed
+3. 解决的问题 Concerns addressed
+4. 语言，建模技巧 Language, modeling techniques
 
 ![](img/lec5/15.png)
 
-### 3.15.1. Example view: context view of Sagitta 2000
+### 3.15.1. 示例视图：Sagitta 2000的上下文视图 Example view: context view of Sagitta 2000
 ![](img/lec5/16.png)
 
-### 3.15.2. Example viewpoint definition
-1. Name: Context viewpoint
-2. Stakeholders: system owners, maintainers
-3. Concerns: system boundaries, effect of changes
-4. Language: UML variant
+### 3.15.2. 视点定义示例 Example viewpoint definition
+1. 名称：上下文视角 Name: Context viewpoint
+2. 利益相关者：系统所有者，维护者 Stakeholders: system owners, maintainers
+3. 关注点：系统边界，变更影响 Concerns: system boundaries, effect of changes
+4. 语言：UML变体 Language: UML variant
 
 ![](img/lec5/17.png)
 
-# 4. Architecture views
+# 4. 架构视图 Architecture views
 
-## 4.1. Key concepts of views and viewpoints
-1. A viewpoint (视角) covers one or more concerns
-2. Viewpoints separate concerns (关注点)
-3. A view (视图) conforms to a viewpoint
-4. A view consists of one or more models (模型)
-5. An architecture description is organized in one or more views (一个或一组视图构成)
+## 4.1. 视角和视角的关键概念 Key concepts of views and viewpoints
+1. 视角涵盖一个或多个关注点 A viewpoint (视角) covers one or more concerns
+2. 视角分离关注点 Viewpoints separate concerns (关注点)
+3. 视图（view）符合观点 A view (视图) conforms to a viewpoint
+4. 视图由一个或多个模型（模型）组成 A view consists of one or more models (模型)
+5. 架构描述以一个或多个视图（一个或多个视图构成）进行组织 An architecture description is organized in one or more views (一个或一组视图构成)
 
-## 4.2. The 4 + 1 view model
+## 4.2. 4 + 1视图模型 The 4 + 1 view model
 ![](img/lec5/18.png)
 ![](img/lec5/19.png)
 
-## 4.3. The 5 architecture views
-1. Use–case view (external - the system viewed by an actor) Key scenarios that drive arch. discovery, design & validation Define functionality & QAs and translate into requirements
-2. Logical view (internal)：Functionality, structure and behavior of the system
-3. Process view (internal)：Concurrency, comm. & synchronization at runtime
-4. Deployment view (internal)：Mapping of components onto processing platforms
-5. Implementation view (internal)：Implementation details
+## 4.3. 5种架构视图 The 5 architecture views
+1. 用例视图（外部-参与者查看的系统）推动架构发展的关键场景。 发现，设计和验证定义功能和QA并转化为需求 Use–case view (external - the system viewed by an actor) Key scenarios that drive arch. discovery, design & validation Define functionality & QAs and translate into requirements
+2. 逻辑视图（内部）：系统的功能，结构和行为 Logical view (internal)：Functionality, structure and behavior of the system
+3. 进程视图（内部）：并发，通信。 和运行时同步 Process view (internal)：Concurrency, comm. & synchronization at runtime
+4. 部署视图（内部）：将组件映射到处理平台 Deployment view (internal)：Mapping of components onto processing platforms
+5. 实施视图（内部）：实施细节 Implementation view (internal)：Implementation details
 6. 用例定义了待开发系统的范围
 
 ## 4.4. UML用于 4+1 软件体系结构视图描述
 
-### 4.4.1. Example of use case view
+### 4.4.1. Example of use case view 用例视图示例
 ![](img/lec5/20.png)
 
-### 4.4.2. (4 + 1): Logical/Conceptual Viewpoint
-1. The logical viewpoint supports the functional requirements, i.e., the services the system should provide to its end users.
-2. Typically, it shows the key abstractions (e.g., classes and interactions amongst them).
+### 4.4.2. （4 +1）：逻辑/概念观点 (4 + 1): Logical/Conceptual Viewpoint
+1. 逻辑观点支持功能需求，即系统应向最终用户提供的服务。 The logical viewpoint supports the functional requirements, i.e., the services the system should provide to its end users.
+2. 通常，它显示关键抽象（例如，类和它们之间的交互）。 Typically, it shows the key abstractions (e.g., classes and interactions amongst them).
 
-### 4.4.3. Example of logical view
+### 4.4.3. 逻辑视图示例 Example of logical view
 ![](img/lec5/21.png)
 
-### 4.4.4. (4 + 1): Process Viewpoint
-1. The process viewpoint gives the mapping of functions to runtime elements
-2. It takes into account some nonfunctional requirements, such as performance, system availability, concurrency and distribution, system integrity, and fault-tolerance.
+### 4.4.4. （4 +1）：流程观点 (4 + 1): Process Viewpoint
+1. 流程观点提供了功能到运行时元素的映射 The process viewpoint gives the mapping of functions to runtime elements
+2. 它考虑了一些非功能性需求，例如性能，系统可用性，并发和分发，系统完整性和容错能力。It takes into account some nonfunctional requirements, such as performance, system availability, concurrency and distribution, system integrity, and fault-tolerance.
 
-### 4.4.5. Example of process view
+### 4.4.5. 流程视图示例 Example of process view
 ![](img/lec5/22.png)
 
-### 4.4.6. (4 + 1): Implementation Viewpoint
-1. The implementation viewpoint focuses on the organization of the actual software modules in the software-development environment.
-2. The software is packaged in small chunks-program libraries or subsystems-that can be developed by one or more developers.
+### 4.4.6. （4 +1）：实施观点 (4 + 1): Implementation Viewpoint
+1. 实施观点着眼于软件开发环境中实际软件模块的组织。 The implementation viewpoint focuses on the organization of the actual software modules in the software-development environment.
+2. 该软件打包在一个小块的程序库或子系统中，可以由一个或多个开发人员开发。 The software is packaged in small chunks-program libraries or subsystems-that can be developed by one or more developers.
 
-### 4.4.7. Example of implementation view
+### 4.4.7. 实施视图示例 Example of implementation view
 ![](img/lec5/23.png)
 
-### 4.4.8. (4 + 1): Deployment Viewpoint
-1. The deployment viewpoint defines how the various elements identified in the logical, process, and implementation viewpointsnetworks, processes, tasks, and objects-must be mapped onto the various nodes.
-2. It takes into account the system's nonfunctional requirements such as system availability, reliability (fault-tolerance), performance (throughput), and scalability.
+### 4.4.8. （4 +1）：部署视点 (4 + 1): Deployment Viewpoint
+1. 部署视点定义了逻辑，流程和实现视点中标识的各种元素如何将网络，流程，任务和对象映射到各个节点上。 The deployment viewpoint defines how the various elements identified in the logical, process, and implementation viewpointsnetworks, processes, tasks, and objects-must be mapped onto the various nodes.
+2. 它考虑了系统的非功能性需求，例如系统可用性，可靠性（容错），性能（吞吐量）和可伸缩性。 It takes into account the system's nonfunctional requirements such as system availability, reliability (fault-tolerance), performance (throughput), and scalability.
 
-### 4.4.9. Example of deployment view
+### 4.4.9. 部署视图示例 Example of deployment view
 ![](img/lec5/24.png)
 
-## 4.5. Using 4 + 1 view in UML
+## 4.5. 在UML中使用4 + 1视图 Using 4 + 1 view in UML
 ![](img/lec5/25.png)
 
-## 4.6. Traceability of Models
+## 4.6. 模型的可追溯性 Traceability of Models
 ![](img/lec5/26.png)
 
-## 4.7. Rational Rose in 4+1 view
+## 4.7. 4 + 1视图中的Rational Rose Rational Rose in 4+1 view
 | ![](img/lec5/27.png) | ![](img/lec5/28.png) |
 | -------------------- | -------------------- |
 
-## 4.8. Crosscutting viewpoints (交叉的体系结构视图)
-1. Security shows up in functional view as user authentication, and in deployment view as firewall
-2. Performance shows up in functional view in component coupling, in deployment view as distributed topology
-3. Consistencies between architecture views are important , but difficult to maintain (traceability helps)
+## 4.8. 横切观点 Crosscutting viewpoints (交叉的体系结构视图)
+1. 安全性在功能视图中显示为用户身份验证，在部署视图中显示为防火墙 Security shows up in functional view as user authentication, and in deployment view as firewall
+2. 性能在组件耦合的功能视图中显示，在部署视图中作为分布式拓扑显示 Performance shows up in functional view in component coupling, in deployment view as distributed topology
+3. 架构视图之间的一致性很重要，但是很难维护（可追溯性会有所帮助）Consistencies between architecture views are important , but difficult to maintain (traceability helps)
 
-## 4.9. Problems/pitfalls in architecture views
-1. Poorly defined interfaces
-2. Poorly understood responsibilities
-3. Overloading the view
-4. Just drawing the picture
-5. Inappropriate level of detail
-6. "God" elements
+## 4.9. 架构视图中的问题/陷阱 Problems/pitfalls in architecture views
+1. 接口定义不正确 Poorly defined interfaces
+2. 对责任的理解不深 Poorly understood responsibilities
+3. 重载视图 Overloading the view
+4. 只是画图 Just drawing the picture
+5. 详细程度不当 Inappropriate level of detail
+6. “上帝”元素 "God" elements
 
-## 4.10. Example overloaded view
+## 4.10. 示例重载视图 Example overloaded view
 ![](img/lec5/29.png)
 
-## 4.11. Architectural views in your projects
-1. One viewpoint should focus on the system from the perspective of (some or all) external stakeholders
-2. One of the viewpoints should be a technical viewpoint.
-3. How to express business concerns of stakeholders in an understandable way?
-4. Some good examples from previous years:
+## 4.11. 项目中的架构视图 Architectural views in your projects
+1. 一种观点应该从（部分或全部）外部利益相关者的角度关注系统 One viewpoint should focus on the system from the perspective of (some or all) external stakeholders
+2. 观点之一应该是技术观点。 One of the viewpoints should be a technical viewpoint.
+3. 如何以一种易于理解的方式表达利益相关者的业务问题？ How to express business concerns of stakeholders in an understandable way?
+4. 往年的一些很好的例子：Some good examples from previous years:
 5. 软件体系结构文档中的视图要求
 
 ![](img/lec5/30.png)
 
-# 5. How to obtain a set of arch. views
+# 5. 如何获得一套体系结构视图 How to obtain a set of arch. views
 
-## 5.1. How to decide on which views
-1. Start with business goals
-2. What are the stakeholders and their concerns?
-3. Which views address these concerns?
-4. Prioritize and possibly combine views (key drivers)
+## 5.1. 如何决定哪些观点 How to decide on which views
+1. 从业务目标入手 Start with business goals
+2. 利益相关者及其关注的是什么？ What are the stakeholders and their concerns?
+3. 哪些观点解决了这些问题？ Which views address these concerns?
+4. 优先考虑并可能合并视图（关键驱动因素）Prioritize and possibly combine views (key drivers)
 
-## 5.2. Categories of business goals [Ch 16]
-1. Organization’s growth and continuity
-2. Meeting financial objectives
-3. Meeting personal objectives
-4. Meeting responsibility of employees
-5. Meeting responsibility to country
-6. Meeting responsibility to society
-7. Meeting responsibility to shareholders
+## 5.2. 业务目标类别[第16章] Categories of business goals [Ch 16]
+1. 组织的成长和连续性 Organization’s growth and continuity
+2. 达到财务目标 Meeting financial objectives
+3. 达到个人目标 Meeting personal objectives
+4. 履行员工责任 Meeting responsibility of employees
+5. 履行对国家的责任 Meeting responsibility to country
+6. 履行对社会的责任 Meeting responsibility to society
+7. 履行对股东的责任 Meeting responsibility to shareholders
 8. Managing market position
 9. Improving business processes
 10. Managing product’s quality and reputation

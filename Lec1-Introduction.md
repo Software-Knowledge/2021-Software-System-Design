@@ -4,7 +4,7 @@ Lec1-Introduction
 # 1. 课程背景
 
 ## 1.1. 为什么要研究软件设计体系结构？Why Study Software Design & Architecture?
-1. Sfoftware(IT) systems are everywhere 软件(IT)系统无处不在
+1. 软件(IT)系统无处不在 Software(IT) systems are everywhere
 2. Every software intensive system has a sofftware design and architecture 每个软件密集型系统都有一个软件设计和体系结构
 3. Software design and architecture are an increasingly important area of practice, education, and research 软件设计和体系结构是实践，教育和研究中越来越重要的领域
 4. As a profession: Software Architect 专业：软件架构师
