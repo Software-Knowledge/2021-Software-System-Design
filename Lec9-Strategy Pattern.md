@@ -122,99 +122,100 @@ Lec9-设计模式
 1. 合成为您提供了更多的灵活性 Composition gives you a lot more flexibility.
 2. 它不仅使您可以将一系列算法封装到自己的类集中，而且还使您可以在运行时更改行为 Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime.
 
-# 8. 第一个设计模式-策略 The first design pattern-- STRATEGY
-1. 策略模式定义了一系列算法，将每个算法封装在一起，并使它们可互换  策略使算法独立于使用该算法的客户端而变化 The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+# 8. 第一个设计模式-策略 The first design pattern--STRATEGY
+1. 策略模式定义了一系列算法，将每个算法封装在一起，并使它们可替换，策略使算法独立于使用该算法的客户端而变化 The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 
 ![](img/lec9/21.png)
 
-## 8.1. Pattern
-1. Name:Strategy
-2. Intent:Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+## 8.1. 模式 Pattern
+1. 名称：策略模式 Name:Strategy
+2. 目的：定义一系列算法，封装每个算法，并使它们可替换。策略使算法可以独立于使用该算法的客户端而变化。Intent:Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 3. Also known as:Policy
 
-## 8.2. Motivation – breaking a stream of text into lines
-1. Many algorithms exist for breaking a stream of text into lines. Hard-wiring all such algorithms into the classes isn't desirable.
+## 8.2. 目的-将文本流分成几行 Motivation – breaking a stream of text into lines
+1. 存在许多用于将文本流分成行的算法。 将所有这样的算法硬连接到类中是不可取的。Many algorithms exist for breaking a stream of text into lines. Hard-wiring all such algorithms into the classes isn't desirable.
 
 ```java
 public class Context{
-  public void algorithm(String type){
-    if(type == "strategyA")
-    {}
-    else if(type == "strategyB")
-    {}
-    else if(type == "strategyC")
-    {}
-  }
+   public void algorithm(String type){
+      if(type.equals("strategyA")) {
+         this.strategy = new ConcreteStrategyA();
+      } else if(type.equals("strategyB")) {
+         this.strategy = new ConcreteStrategyB();
+      } else if(type.equals("strategyC")) {
+         this.strategy = new ConcreteStrategyC();
+      }
+   }
 }
 ```
 
-## 8.3. Applicability
-1. Use the Strategy pattern when
-   1. many related classes differ only in their behavior.Strategies provide a way to configure a class with one of many behaviors.
-   2. you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
-   3. an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
-   4. a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
+## 8.3. 适用性 Applicability
+1. 在以下情况下使用策略模式 Use the Strategy pattern when
+   1. 许多相关的类仅在行为上有所不同，策略提供了一种使用多种行为之一配置类的方法。many related classes differ only in their behavior.Strategies provide a way to configure a class with one of many behaviors.
+   2. 您需要算法的不同变体。例如，您可能定义了反映不同空间/时间权衡的算法。将这些变体实现为算法的类层次结构时，可以使用策略。you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
+   3. 一种算法使用客户端不应该知道的数据。使用策略模式可避免暴露复杂的，特定于算法的数据结构。an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
+   4. 一个类定义了许多行为，这些行为在其操作中显示为多个条件语句。代替许多条件，将相关的条件分支移到他们自己的策略类中。a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
 
-## 8.4. Consequences
-1. Families of related algorithms. Hierarchies of Strategy classes define a family of algorithms or behaviors for contexts to reuse. Inheritance can help factor out common functionality of the algorithms.
-2. An alternative to subclassing.
-3. Strategies eliminate conditional statements
-4. A choice of implementations. Strategies can provide different implementations of the same behavior. The client can choose among strategies with different time and space trade-offs.
-5. Clients must be aware of different Strategies. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues.
-6. Communication overhead between Strategy and Context.
-7. Increased number of objects.
+## 8.4. 结果 Consequences
+1. 相关算法家族。策略类的层次结构定义了一系列算法或行为，以供上下文重用。继承可以帮助排除算法的通用功能。Families of related algorithms. Hierarchies of Strategy classes define a family of algorithms or behaviors for contexts to reuse. Inheritance can help factor out common functionality of the algorithms.
+2. 子类化的替代方法。An alternative to subclassing.
+3. 策略消除条件语句。Strategies eliminate conditional statements.
+4. 多种实现方式。策略可以提供相同行为的不同实现。客户可以选择具有不同时间和空间权衡的策略。A choice of implementations. Strategies can provide different implementations of the same behavior. The client can choose among strategies with different time and space trade-offs.
+5. 客户必须意识到不同的策略。这种模式有一个潜在的缺点，即客户在选择合适的策略之前必须先了解策略的不同。 客户可能会遇到实施问题。Clients must be aware of different Strategies. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues.
+6. 策略和上下文之间的通信开销。Communication overhead between Strategy and Context.
+7. 对象数量增加。Increased number of objects.
 
-## 8.5. Shared vocabulary
-1. ALICE：I need a Cream cheese with jelly on white bread, a chocolate soda with vanilla ice cream, a grilled cheese sandwich with bacon, a tuna fish salad on toast, a banana split with ice cream & sliced bananas and a coffee with a cream and two sugars, ... oh, and put a hamburger on the grill!
-2. FLO：Give me a C.J. White, a black & white, a Jack Benny, a radio, a house boat, a coffee regular and burn one!
-3. lDesign Patterns give you a shared vocabulary with other developers.
-4. It also elevates your thinking about architectures by letting you think at the pattern level, not the nitty gritty object level.
+## 8.5. 共享词汇 Shared vocabulary
+1. 爱丽丝（ALICE）：我需要奶油芝士和白面包上的果冻，巧克力苏打和香草冰淇淋，烤芝士三明治配培根，吞拿鱼和吞拿鱼沙拉，香蕉冰淇淋配香蕉片和香蕉片以及一杯咖啡奶油和两种糖，……哦，把汉堡包放在烤架上！ ALICE：I need a Cream cheese with jelly on white bread, a chocolate soda with vanilla ice cream, a grilled cheese sandwich with bacon, a tuna fish salad on toast, a banana split with ice cream & sliced bananas and a coffee with a cream and two sugars, ... oh, and put a hamburger on the grill!
+2. FLO：给我C.J. 白色，黑色和白色，杰克·本尼（Jack Benny），一台收音机，一艘船屋，一份普通咖啡并烧一烧！FLO：Give me a C.J. White, a black & white, a Jack Benny, a radio, a house boat, a coffee regular and burn one!
+3. 设计模式为您提供了与其他开发人员共享的词汇表。Design Patterns give you a shared vocabulary with other developers.
+4. 通过让您在模式级别（而不是实质性对象级别）进行思考，还可以提高您对体系结构的思考。It also elevates your thinking about architectures by letting you think at the pattern level, not the nitty gritty object level.
 
-## 8.6. The power of a shared pattern vocabulary
-1. Shared pattern vocabularies are POWERFUL.
-   1. When you communicate with another developer or your team using patterns, you are communication not just a pattern name but a whole set of qualities, characteristics and constraints that the pattern represents.
-2. Patterns allow you to say more with less.
-   1. When you use a pattern in a description, other developers quickly know precisely the design you have in mind.
-3. Talking at the pattern level allows you to stay "in the design" longer.
-4. Do not lost in the details.
-5. Shared vocabularies can turbo charge your development team.
-6. Shared vocabularies encourage more junior developers to get up to speed.
+## 8.6. 共享模式词汇的力量 The power of a shared pattern vocabulary
+1. 共享模式词汇的力量 Shared pattern vocabularies are POWERFUL.
+   1. 当您使用模式与其他开发人员或团队进行沟通时，您不仅在沟通模式名称，还传达了模式所代表的整套质量，特征和约束。When you communicate with another developer or your team using patterns, you are communication not just a pattern name but a whole set of qualities, characteristics and constraints that the pattern represents.
+2. 模式可以让您少花钱多说话。Patterns allow you to say more with less.
+   1. 当您在描述中使用模式时，其他开发人员会快速准确地了解您所考虑的设计。When you use a pattern in a description, other developers quickly know precisely the design you have in mind.
+3. 在模式级别进行交谈可以使您在“设计中”停留的时间更长。Talking at the pattern level allows you to stay "in the design" longer.
+4. 不要迷失在细节中。Do not lost in the details.
+5. 共享词汇可以为您的开发团队提供强大的动力。Shared vocabularies can turbo charge your development team.
+6. 共享的词汇表鼓励更多的初级开发人员快速上手。Shared vocabularies encourage more junior developers to get up to speed.
 
-# 9. How do we use design patterns?
-1. Libraries and frameworks.
-2. DP help us structure our own applications to be more maintainable and flexible.
-3. DP first go into your BRAIN.
+# 9. 我们如何使用设计模式 How do we use design patterns?
+1. 依赖库和框架 Libraries and frameworks.
+2. 设计模式帮助我们构建自己的应用程序，以使其更具可维护性和灵活性。DP help us structure our own applications to be more maintainable and flexible.
+3. 设计模式首先进入你的大脑 DP first go into your BRAIN.
 
-# 10. Q & A
-1. Q: If design patterns are so great, why can't someone build a library of them so I don't have to?
-2. A: Design patterns are higher level than libraries. Design patterns tell us how to structure classes and objects to solve certain problems and it is our job to adapt those designs to fit our particular application.
-3. Q: Aren't libraries and frameworks also design patterns?
-4. A: Frameworks and libraries are not design patterns; they provide specific implementations that we link into our code. Sometimes, however, libraries and frameworks make use of design patterns in their implementations. That's great, because once you understand design patterns, you'll more quickly understand APIs that are structured around design patterns.
+# 10. Q & A 问与答
+1. 问：如果设计模式是如此出色，为什么有人不能建立它们的库，所以我不必这样做？Q: If design patterns are so great, why can't someone build a library of them so I don't have to?
+2. 答：设计模式比库更高。设计模式告诉我们如何构造类和对象以解决某些问题，适应这些设计以适合我们的特定应用程序是我们的工作。A: Design patterns are higher level than libraries. Design patterns tell us how to structure classes and objects to solve certain problems and it is our job to adapt those designs to fit our particular application.
+3. 问：库和框架不是也在设计模式吗？Q: Aren't libraries and frameworks also design patterns?
+4. 答：框架和库不是设计模式；它们提供了我们链接到代码中的特定实现。但是，有时，库和框架在其实现中会使用设计模式。太好了，因为一旦您了解了设计模式，就可以更快地了解围绕设计模式构建的API。A: Frameworks and libraries are not design patterns; they provide specific implementations that we link into our code. Sometimes, however, libraries and frameworks make use of design patterns in their implementations. That's great, because once you understand design patterns, you'll more quickly understand APIs that are structured around design patterns.
 
-# 11. Patterns are nothing more than using OO design principles?
-1. Knowing concepts like abstraction, inheritance, and polymorphism do not make you a good object oriented designer. A design guru thinks about how to create flexible designs that are maintainable and that can cope with change.
+# 11. 模式无非就是使用OO设计原则？Patterns are nothing more than using OO design principles?
+1. 知道诸如抽象，继承和多态之类的概念并不能使您成为一名优秀的面向对象设计者。 设计大师考虑如何创建可维护且可以应对变更的灵活设计。Knowing concepts like abstraction, inheritance, and polymorphism do not make you a good object oriented designer. A design guru thinks about how to create flexible designs that are maintainable and that can cope with change.
 
-# 12. Tools for your design toolbox
-1. OO Basics
-2. Abstraction
-3. Encapsulation
-4. Polymorphism
-5. Inheritance
-6. OO Principles
-7. Encapsulate what varies
-8. Favor composition over inheritance
-9. Program to interfaces, not implementation
-10. OO Patterns
-11. Strategy
+# 12. 设计工具箱的工具 Tools for your design toolbox
+1. 面向对象的基础 OO Basics
+2. 抽象 Abstraction
+3. 封装 Encapsulation
+4. 多态性 Polymorphism
+5. 继承 Inheritance
+6. 面向对象原则 OO Principles
+7. 封装可变性 Encapsulate what varies
+8. 选择组合而不是继承 Favor composition over inheritance
+9. 面向接口编程，而不是面向实现编程 Program to interfaces, not implementation
+10. 面向对象模式 OO Patterns
+11. 策略 Strategy
 
-# 13. Reviews
-1. Knowing the OO basics does not make you a good OO designer.
-2. Good OO designs are reusable, extensible and maintainable.
-3. Patterns show you how to build systems with good OO design qualities.
-4. Patterns are proven object oriented experience.
-5. Patterns don't give you code, they give you general solutions to design problems. You apply them to your specific application.
-6. Patterns aren't invented, they are discovered.
-7. Most patterns and principles address issues of change in software.
-8. Most patterns allow some part of a system to vary independently of all other parts. 
-9. We often try to take what varies in a system and encapsulate it.
-10. Patterns provide a shared language that can maximize the value of your communication with other developer.
+# 13. 回顾 Reviews
+1. 仅仅知道面向对象基础不能让你成一个很好的面向对象的设计人。Knowing the OO basics does not make you a good OO designer.
+2. 好的面向对象设计应该可以重用、扩展和稳定的 Good OO designs are reusable, extensible and maintainable.
+3. 模式让你知道如何创建一个有很好的面向对象设计质量的系统 Patterns show you how to build systems with good OO design qualities.
+4. 模式是公认的面向对象的经验。Patterns are proven object oriented experience.
+5. 模式不会为您提供代码，它们会为您提供设计问题的一般解决方案。 您将它们应用于您的特定应用程序。Patterns don't give you code, they give you general solutions to design problems. You apply them to your specific application.
+6. 模式不是发明的，而是被发现的。Patterns aren't invented, they are discovered.
+7. 大多数模式和原则都解决软件变更问题。Most patterns and principles address issues of change in software.
+8. 大多数模式都允许系统的某些部分独立于所有其他部分而变化。Most patterns allow some part of a system to vary independently of all other parts.
+9. 我们经常尝试采用系统中的变化并将其封装。We often try to take what varies in a system and encapsulate it.
+10. 模式提供了一种共享语言，可以使您与其他开发人员的交流价值最大化。Patterns provide a shared language that can maximize the value of your communication with other developer.
