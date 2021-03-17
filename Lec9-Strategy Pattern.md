@@ -124,16 +124,21 @@ Lec9-设计模式
 
 # 8. 第一个设计模式-策略 The first design pattern--STRATEGY
 1. 策略模式定义了一系列算法，将每个算法封装在一起，并使它们可替换，策略使算法独立于使用该算法的客户端而变化 The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+2. 变化在客户使用时才会出现，也就是要实现这个模式就必须要将细节暴露给用户。
+3. 实际开发的时候，可能是由多个设计模式组合成的
+4. 我们可能需要一个算法族，希望彼此是可以替换的
 
 ![](img/lec9/21.png)
 
 ## 8.1. 模式 Pattern
 1. 名称：策略模式 Name:Strategy
 2. 目的：定义一系列算法，封装每个算法，并使它们可替换。策略使算法可以独立于使用该算法的客户端而变化。Intent:Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
-3. Also known as:Policy
+3. 当然也会被记为(别名) Also known as:Policy
+4. 建议阅读JOF的Design Pattern
 
-## 8.2. 目的-将文本流分成几行 Motivation – breaking a stream of text into lines
-1. 存在许多用于将文本流分成行的算法。 将所有这样的算法硬连接到类中是不可取的。Many algorithms exist for breaking a stream of text into lines. Hard-wiring all such algorithms into the classes isn't desirable.
+## 8.2. 模式动机-将文本流分成几行 Motivation – breaking a stream of text into lines
+1. 存在许多用于将文本流分成行的算法。将所有这样的算法硬连接到类中是不可取的。Many algorithms exist for breaking a stream of text into lines. Hard-wiring all such algorithms into the classes isn't desirable.
+2. 不满足开闭原则，每次修改都要反复检查每一个条件语句
 
 ```java
 public class Context{
@@ -149,27 +154,32 @@ public class Context{
 }
 ```
 
-## 8.3. 适用性 Applicability
+## 8.3. 应用性 Applicability
 1. 在以下情况下使用策略模式 Use the Strategy pattern when
-   1. 许多相关的类仅在行为上有所不同，策略提供了一种使用多种行为之一配置类的方法。many related classes differ only in their behavior.Strategies provide a way to configure a class with one of many behaviors.
-   2. 您需要算法的不同变体。例如，您可能定义了反映不同空间/时间权衡的算法。将这些变体实现为算法的类层次结构时，可以使用策略。you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
-   3. 一种算法使用客户端不应该知道的数据。使用策略模式可避免暴露复杂的，特定于算法的数据结构。an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
-   4. 一个类定义了许多行为，这些行为在其操作中显示为多个条件语句。代替许多条件，将相关的条件分支移到他们自己的策略类中。a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
+   1. 许多相关的类仅在**行为**上有所不同，策略提供了一种使用多种行为之一配置类的方法。many related classes differ only in their behavior.Strategies provide a way to configure a class with one of many behaviors.
+   2. 您需要**算法的不同变体**。例如，您可能定义了反映不同空间/时间权衡的算法。将这些变体实现为算法的类层次结构时，可以使用策略。you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
+   3. 一种算法使用客户端不应该知道的数据。使用策略模式**可避免暴露复杂的、特定于算法的数据结构**。an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
+   4. 一个类定义了许多行为，这些行为在其操作中显示为多个条件语句。代替许多条件，将相关的条件分支移到他们自己的**策略类**中。a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
+2. 很多问题都出现于数据结构被暴露：比如迭代器模式
 
 ## 8.4. 结果 Consequences
 1. 相关算法家族。策略类的层次结构定义了一系列算法或行为，以供上下文重用。继承可以帮助排除算法的通用功能。Families of related algorithms. Hierarchies of Strategy classes define a family of algorithms or behaviors for contexts to reuse. Inheritance can help factor out common functionality of the algorithms.
 2. 子类化的替代方法。An alternative to subclassing.
 3. 策略消除条件语句。Strategies eliminate conditional statements.
 4. 多种实现方式。策略可以提供相同行为的不同实现。客户可以选择具有不同时间和空间权衡的策略。A choice of implementations. Strategies can provide different implementations of the same behavior. The client can choose among strategies with different time and space trade-offs.
-5. 客户必须意识到不同的策略。这种模式有一个潜在的缺点，即客户在选择合适的策略之前必须先了解策略的不同。 客户可能会遇到实施问题。Clients must be aware of different Strategies. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues.
+5. 客户必须意识到不同的策略。这种模式有一个潜在的缺点，即**客户在选择合适的策略之前必须先了解策略的不同**。客户可能会遇到实施问题。Clients must be aware of different Strategies. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues.
 6. 策略和上下文之间的通信开销。Communication overhead between Strategy and Context.
 7. 对象数量增加。Increased number of objects.
+8. 模式一般都会有的不好：
+   1. 增加设计的复杂度和增加类的个数(增加辅助类)
+   2. 增加隔阂、方法调用，降低软件运行的效率，但是已经不是目前主要的问题了
+9. Java的加密方法、时间显示算法等都是通过策略模式实现的
 
 ## 8.5. 共享词汇 Shared vocabulary
 1. 爱丽丝（ALICE）：我需要奶油芝士和白面包上的果冻，巧克力苏打和香草冰淇淋，烤芝士三明治配培根，吞拿鱼和吞拿鱼沙拉，香蕉冰淇淋配香蕉片和香蕉片以及一杯咖啡奶油和两种糖，……哦，把汉堡包放在烤架上！ ALICE：I need a Cream cheese with jelly on white bread, a chocolate soda with vanilla ice cream, a grilled cheese sandwich with bacon, a tuna fish salad on toast, a banana split with ice cream & sliced bananas and a coffee with a cream and two sugars, ... oh, and put a hamburger on the grill!
 2. FLO：给我C.J. 白色，黑色和白色，杰克·本尼（Jack Benny），一台收音机，一艘船屋，一份普通咖啡并烧一烧！FLO：Give me a C.J. White, a black & white, a Jack Benny, a radio, a house boat, a coffee regular and burn one!
 3. 设计模式为您提供了与其他开发人员共享的词汇表。Design Patterns give you a shared vocabulary with other developers.
-4. 通过让您在模式级别（而不是实质性对象级别）进行思考，还可以提高您对体系结构的思考。It also elevates your thinking about architectures by letting you think at the pattern level, not the nitty gritty object level.
+4. 通过让您在**模式级别**（而不是实质性对象级别）进行思考，还可以提高您对体系结构的思考。It also elevates your thinking about architectures by letting you **think at the pattern level**, not the nitty gritty object level.
 
 ## 8.6. 共享模式词汇的力量 The power of a shared pattern vocabulary
 1. 共享模式词汇的力量 Shared pattern vocabularies are POWERFUL.
@@ -182,9 +192,10 @@ public class Context{
 6. 共享的词汇表鼓励更多的初级开发人员快速上手。Shared vocabularies encourage more junior developers to get up to speed.
 
 # 9. 我们如何使用设计模式 How do we use design patterns?
-1. 依赖库和框架 Libraries and frameworks.
+1. 依赖库和框架：提供了全部和必要的功能，一般可以直接直接复用 Libraries and frameworks.
 2. 设计模式帮助我们构建自己的应用程序，以使其更具可维护性和灵活性。DP help us structure our own applications to be more maintainable and flexible.
 3. 设计模式首先进入你的大脑 DP first go into your BRAIN.
+4. 尽量避免过度使用的问题
 
 # 10. Q & A 问与答
 1. 问：如果设计模式是如此出色，为什么有人不能建立它们的库，所以我不必这样做？Q: If design patterns are so great, why can't someone build a library of them so I don't have to?
@@ -193,20 +204,20 @@ public class Context{
 4. 答：框架和库不是设计模式；它们提供了我们链接到代码中的特定实现。但是，有时，库和框架在其实现中会使用设计模式。太好了，因为一旦您了解了设计模式，就可以更快地了解围绕设计模式构建的API。A: Frameworks and libraries are not design patterns; they provide specific implementations that we link into our code. Sometimes, however, libraries and frameworks make use of design patterns in their implementations. That's great, because once you understand design patterns, you'll more quickly understand APIs that are structured around design patterns.
 
 # 11. 模式无非就是使用OO设计原则？Patterns are nothing more than using OO design principles?
-1. 知道诸如抽象，继承和多态之类的概念并不能使您成为一名优秀的面向对象设计者。 设计大师考虑如何创建可维护且可以应对变更的灵活设计。Knowing concepts like abstraction, inheritance, and polymorphism do not make you a good object oriented designer. A design guru thinks about how to create flexible designs that are maintainable and that can cope with change.
+1. 知道诸如抽象，继承和多态之类的概念并不能使您成为一名优秀的面向对象设计者。设计大师考虑如何创建可维护且可以应对变更的灵活设计。Knowing concepts like abstraction, inheritance, and polymorphism do not make you a good object oriented designer. A design guru thinks about how to create flexible designs that are maintainable and that can cope with change.
+2. 设计模式可以帮助我们更好的理解设计原则
 
 # 12. 设计工具箱的工具 Tools for your design toolbox
 1. 面向对象的基础 OO Basics
-2. 抽象 Abstraction
-3. 封装 Encapsulation
-4. 多态性 Polymorphism
-5. 继承 Inheritance
-6. 面向对象原则 OO Principles
-7. 封装可变性 Encapsulate what varies
-8. 选择组合而不是继承 Favor composition over inheritance
-9. 面向接口编程，而不是面向实现编程 Program to interfaces, not implementation
-10. 面向对象模式 OO Patterns
-11. 策略 Strategy
+   1. 抽象 Abstraction
+   2. 封装 Encapsulation
+   3. 多态性 Polymorphism
+   4. 继承 Inheritance
+2. 面向对象原则 OO Principles
+   1. 封装可变性 Encapsulate what varies
+   2. 选择组合而不是继承 Favor composition over inheritance
+   3. 面向接口编程，而不是面向实现编程 Program to interfaces, not implementation
+3. 面向对象模式 OO Patterns：策略 Strategy
 
 # 13. 回顾 Reviews
 1. 仅仅知道面向对象基础不能让你成一个很好的面向对象的设计人。Knowing the OO basics does not make you a good OO designer.
