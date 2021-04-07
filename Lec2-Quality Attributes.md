@@ -117,7 +117,7 @@ number of possible structures.
 5. 环境(Environment)：发生刺激时系统的状况，例如过载，运行等 Environment: A system's condition when a stimulus occurs, e.g. overloaded, running etc.
 6. 工件(Artifact)：需求适用的**整个**系统或系统的一部分。Artifact: The whole system or the portion of the system to which the requirement applies.
 
-#### 2.2.3.3. 策略 Tactics
+#### 2.2.3.3.  Tactics
 1. 风格或样式运用策略来提供预期的收益 Style or pattern applies tactics to provide the promised benefit.
 2. 策略是影响质量属性响应**控制**的**设计决策**，例如冗余。A tactic is a design decision, .e.g. redundancy, that influences the control of a quality attribute response.
 3. 策略的**集合**称为体系结构策略。A collection of tactics is called an architectural strategy.
