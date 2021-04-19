@@ -1,6 +1,5 @@
 Lec17-Defensive Programming
 ---
-
 # 1. 防御式编程Defensive Programming
 1. 为什么采用防御式编程
 2. 断言
@@ -24,7 +23,7 @@ Lec17-Defensive Programming
 1. 这个函数"绝不会"被那样调用。传递给我的参数总是有效的
 2. 这段代码肯定会"一直"正常运行；它绝对不会产生错误
 3. 如果我把这个变量标记为"仅限内部使用"，就没有人会尝试访问这个变量
-4. 进行防御式编程时，不应该做任何设想！
+4. **进行防御式编程时，不应该做任何设想**！
 
 ## 1.3. 你的软件开发过程是怎样的？
 ![](img/lec17/1.png)
@@ -274,7 +273,10 @@ public class AssertionDemo {
 }
 ```
 
-1. 另一种断言的用法是放在没有default处理的switch语句
+1. 冒泡排序的前置后置条件
+   1. 前置不为空
+   2. 后置：有序
+2. 另一种断言的用法是放在没有default处理的switch语句
 
 ```java
 switch (month) {
@@ -362,6 +364,12 @@ switch (month) {
 ## 3.6. 错误处理代码示例
 ![](img/lec17/2.png)
 
+1. 1号：工作流：可读性差
+2. 2号：扁平化，缺点是需要明显的控制变量
+3. 3号：短路，需要做之后的处理
+4. 4号：合适的
+5. 5号：异常，异常的处理不明显
+
 ## 3.7. 错误信息编写
 1. 当需要由用户清理错误时
    1. 以用户期望的方式呈现信息
@@ -384,6 +392,8 @@ switch (month) {
 
 ![](img/lec17/3.png)
 
+3. 为什么C++没有finally呢？因为C++提供了资源获得和初始化RAI，确保无论是否发生异常都可以完成清理工作。因为C++可以自己进行析构。
+
 ## 3.9. Trace a Program Execution
 ```java
 try {
@@ -395,7 +405,7 @@ catch(Exception1 ex) {
   handling ex; // The exception is handled.
 }
 catch(Exception2 ex){
-  handling ex; // Handling exception
+  handling ex; // Handling exception 
   throw ex; // Rethrow the exception and control is transferred to the caller
 }
 finally {
