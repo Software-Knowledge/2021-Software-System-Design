@@ -2,68 +2,67 @@ Lec18-Table-Driven Methods.md
 ---
 
 # 1. 表驱动法
-1. 表驱动法是一种编程模式（scheme）
-   1. 从表里面查找信息而不使用逻辑语句（if和case）
+1. 表驱动法是一种编程模式(scheme)：从表里面查找信息而不使用逻辑语句(if和case)
 2. 表驱动法适用于复杂的逻辑
 3. 表驱动法的另一个好处是可以将复杂逻辑从代码中独立出来，以便于单独维护
 
 ## 1.1. 表驱动示例
 1. Java示例：使用复杂的逻辑对字符分类
 ```java
-if ( ( ( 'a' <= inputChar ) && ( inputChar <= 'z' ) ) ||
-( ( 'A' <= inputChar ) && ( inputChar <= 'Z' ) ) ) {
-charType = CharacterType.Letter;
-}else if ( ( inputChar == ' ' ) || ( inputChar == ',' ) ||
-( inputChar == '.' ) || ( inputChar == '!' ) || ( inputChar == '(' ) ||
-( inputChar == ')' ) || ( inputChar == ':' ) || ( inputChar == ';' ) ||
-( inputChar == '?' ) || ( inputChar == '-' ) ) {
-charType = CharacterType.Punctuation;
-}else if ( ( '0' <= inputChar ) && ( inputChar <= '9' ) ) {
-charType = CharacterType.Digit;
+if ((('a' <= inputChar) && (inputChar <= 'z'))||
+  (('A' <= inputChar) && (inputChar <= 'Z'))) {
+    charType = CharacterType.Letter;
+}else if ((inputChar==' ')||(inputChar==',')||
+  (inputChar == '.')||(inputChar == '!')||
+  (inputChar == '(')||(inputChar == ')')||
+  (inputChar == ':')||(inputChar == ';')||
+  (inputChar == '?')||(inputChar == '-')){
+    charType = CharacterType.Punctuation;
+}else if (('0' <= inputChar)&&(inputChar <= '9')) {
+    charType = CharacterType.Digit;
 }
 ```
 
 2. 构造一个查询表：把每一个字符的类型保存在一个字符编码访问的数组
-3. Java示例：使用查询表对字符分类`chartype = charTypeTable[ inputChar ];`
+3. Java示例：使用查询表对字符分类`chartype = charTypeTable[inputChar];`
 
 ## 1.2. 使用表驱动法的两个问题
-1. 在表里存放什么信息
-   1. 主要存放的是数据，但在一些特殊情况下也存放动作
+1. 在表里存放什么信息：主要存放的是数据，但在一些特殊情况下也存放动作
 2. 如何快速从表中查询条目
-   1. 直接访问（Direct access）
-   2. 索引访问（Indexed access）
-   3. 阶梯访问（Stair-step access）
+   1. 直接访问(Direct access)
+   2. 索引访问(Indexed access)
+   3. 阶梯访问(Stair-step access)：连续性条件方法
 
 ### 1.2.1. 直接访问表
-1. 所谓“直接访问”是指通过索引值（如下标）可以直接从表中找到对应的条目
+1. 所谓"直接访问"是指通过索引值(如下标)可以直接从表中找到对应的条目
 
 ```vb
-' VB示例：确定各月天数的笨拙做法
-If ( month = 1 ) Then
-days = 31
-ElseIf ( month = 2 ) Then
-days = 28
-ElseIf ( month = 3 ) Then
-days = 31
-…
-ElseIf ( month = 11 ) Then
-days = 30
-ElseIf ( month = 12 ) Then
-days = 31 End If
+'VB示例：确定各月天数的笨拙做法
+If (month = 1) Then
+  days = 31
+ElseIf (month = 2) Then
+  days = 28
+ElseIf (month = 3) Then
+  days = 31
+...
+ElseIf (month = 11) Then
+  days = 30
+ElseIf (month = 12) Then
+  days = 31
+End If
 
 ' 你需要首先创建出这张表用来存放各个月份的天数
 ' VB示例：确定各月天数的优雅做法
 Dim daysPerMonth() As Integer = _
-{ 31, 28, 31, 30, 31, 30, 31, 31, 30,
-31, 30, 31 }
-days = daysPerMonth( month-1 )
+{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+days = daysPerMonth(month-1)
 ```
 
 ### 1.2.2. 例子:灵活的消息格式
 1. 假设你编写一个子程序，打印存储在一份文件中的消息
    1. 通常该文件中会存储大约500 条消息，而每份文件中会存有大约20 种不同的消息。这些消息源自于一些浮标( Buoy) ，提供有关水温、浮标位置等信息。
    2. 每一条消息都有若干字段，并且每条消息都有一个消息头，其中有一个ID ，告诉你该消息属于这20 多种消息中的哪一种。
-   3. 这些消息的格式并不是固定不变的消息的存储方式消息头（ID确定了该消息所属的类型）
+   3. 这些消息的格式并不是固定不变的消息的存储方式消息头(ID确定了该消息所属的类型)
 
 #### 1.2.2.1. 消息的存储方式
 ![](img/lec18/1.png)
@@ -93,6 +92,8 @@ While more messages to read
   Else if the message header is type 20 then
     Print a type 20 message
 ```
+
+1. 如何修改？将动作存储到表中可以将子程序入口地址存储，类似的有多态的实现
 
 #### 1.2.2.5. 画向对象的方法
 1. 但是基本结构还是同样复杂
@@ -143,8 +144,7 @@ enum FieldType {
 ![](img/lec18/4.png)
 
 ### 1.2.6. 表驱动法代码
-1. 表驱动法中最上层循环的伪代码
-   1. 这部分的代码与前面的方法差别不大
+1. 表驱动法中最上层循环的伪代码：这部分的代码与前面的方法差别不大
 
 ```
 While more messages to read      
