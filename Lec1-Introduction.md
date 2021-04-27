@@ -5,7 +5,7 @@ Lec1-Introduction
 
 ## 1.1. 为什么要研究软件设计体系结构？Why Study Software Design & Architecture?
 1. 软件(IT)系统无处不在 Software(IT) systems are everywhere
-2. Every software intensive system has a sofftware design and architecture 每个软件密集型系统都有一个软件设计和体系结构
+2. Every software intensive system has a sofftware design and architecture 每个软件密集型(组成的)系统都有一个软件设计和体系结构
 3. Software design and architecture are an increasingly important area of practice, education, and research 软件设计和体系结构是实践，教育和研究中越来越重要的领域
 4. As a profession: Software Architect 专业：软件架构师
 5. As a research area 作为研究领域
@@ -23,18 +23,27 @@ Lec1-Introduction
 5. Understand state-of the-art methods applied in software design and architecture 理解艺术式的设计是如何应用到软件设计与体系结构中的
 6. Understand relationships between software design and soffware architecture, and other soffware engineering topic areas 理解软件设计与软件体系结构之间的关系，以及其他软件工程的领域话题
 
+根据参考文献找参考书籍(找)
+
 # 2. 介绍
+1. bonus加分
 
 ## 2.1. Understanding Software Engineering 理解软件工程
 1. Software | Engineering
    1. Software vs. ?
-   2. Science vs. Engineering
+      1. 软件是不可见的：软件是虚拟的，而硬件是实体的。
+      2. 软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)
+   2. Science vs. Engineering：科学的研究是研究这个世界既有的部分，而工程是研究的是人类创造新的世界(是不是因为人才产生的)，下面的图是很重要的。
 
 ![](img/lec1/1.png)
 
 ## 2.2. What is Software Architecture 什么是软件体系结构
-1. Definition 1:“The software architecture of a program or computing system is the structure or structures of the system, which comprise sottware elements, the externally visible properties of those elements, and the relationships among them." [Software Engineering Institute (SEl)] 定义1：程序或计算系统的软件体系结构是系统的一个或多个结构，其中包括软件组件，这些组件的外部可见属性以及它们之间的关系。 [软件工程学院(SEI)]
-2. Definition 2: "The fundamental organization of a  system, embodied in its components, their relationships，to each other and the environment, and the principles governing its design and evolution." [IEEE 1471 -2000 Recommended Practice for Architectural Description of Software-Intensive Systems"] 定义2：系统的基本组织，体现在其组件，它们之间的相互关系以及环境以及支配其设计和演进的原则。[IEEE 1471 -2000 有关软件密集型系统的体系结构描述的推荐做法]
+1. Definition 1:"The software architecture of a program or computing system is the structure or structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them." [Software Engineering Institute (SEl)] 定义1：程序或计算系统的软件体系结构是系统的一个或多个结构，其中包括软件组件，这些组件的外部可见属性以及它们之间的关系。[软件工程学院(SEI)]
+2. Definition 2: "The fundamental organization of a  system, embodied in its components, their relationships，to each other and the environment, and the principles governing its design and evolution." [IEEE 1471 -2000 Recommended Practice for Architectural Description of Software-Intensive Systems"] 定义2：系统的基本组织，体现在其组件，它们之间的相互关系以及环境以及支配其**设计和演进的原则**。[IEEE 1471-2000有关软件密集型系统的体系结构描述的推荐做法]
+3. Module和Component：
+   1. 实现出来的软件部分叫做Component，即组件
+   2. 还没有实现出来的软件部分叫做module，即模块
+   3. Element包含了Component和Module
 
 ## 2.3. 体系结构 vs 设计 Architecture vs. Design
 1. It's about software design 它是关于软件设计
@@ -47,20 +56,25 @@ Lec1-Introduction
 3. Structure/Organization of the system 系统的结构或组织
    1. Elements: components & connectors 元素：部件和连接件
    2. Relationships: static & dynamic relationships 关系：静态和动态的关系
-4. Properties: elements, groups of elements & overall system属性：元素，元素组和整个系统
+4. Properties: elements, groups of elements & overall system 属性：元素，元素组和整个系统
 
 ## 2.4. 体系结构 vs 结构 Architecture vs. Structure
-1. Decomposition of system into components/ modules/ subsystems 将系统分解成部件/模块/子系统
+1. Decomposition of system into components/ modules/ subsystems 将系统分解成部件/模块/子系统，降低每一部分的复杂度
 2. Architecture defines 体系结构定义：
    1. Component intertaces:What a component can do?部件接口：部件可以做什么？
    2. Component communications and dependencies:How components communicate? 部件交流和依赖：部件可以怎么沟通交流？
    3. Component responsibilities:Precisely what a component will do when you ask it?部件职责：当我们询问它时，部件需要精确的知道自己将要做什么？
 
-## 2.5. 结构和体系结构 Structure and Architecture
+### 2.4.1. 结构和体系结构 Structure and Architecture
 | ![](img/lec1/2.png) | ![](img/lec1/3.png) |
 | ------------------- | ------------------- |
 
-## 2.6. 体系结构指定通信 Architecture Specifies Communication
+1. 第一张图：结构
+2. 第二张图：体系结构
+   1. 第一个设计：第三方模块和其他四个模块直接耦合。
+   2. 第二个设计：AL屏蔽了变化
+
+### 2.4.2. 体系结构指定通信 Architecture Specifies Communication
 1. Communication involves:通信需要：
    1. Data passing mechanisms, for example:**数据**通过机器传递，比如
       1. Function call函数调用
@@ -72,8 +86,8 @@ Lec1-Introduction
       3. Concurrent/ parallel并发/并行
       4. Synchronization同步
 
-## 2.7. 体系结构强调非功能性需求(NFA) Architecture Address NFRS
-1. **非功能性需求(Non-functional requirements)**定义了**系统运行的有多好** Non-functional requirements (NFRs) define "how well a system works?
+### 2.4.3. 体系结构强调非功能性需求(NFA) Architecture Address NFRS
+1. **非功能性需求(Non-functional requirements)**定义了**系统运行的有多好** Non-functional requirements (NFRs) define "how well a system works? 也会考虑功能性需求
 2. 非功能性需求很少在功能性性需求中很少被发现 NFRs rarely captured in functional requirements
    1. 又名体系结构需求 Aka. architecture requirements
    2. 必须通过体系结构引出 Must be elicited by architect
@@ -83,7 +97,7 @@ Lec1-Introduction
    3. 质量属性 Quality attrilbutes
 4. 讨论：质量属性列表 Discussion: A list of quality attributes?
 
-## 2.8. Design is an Abstraction 设计是一种抽象
+## 2.5. Design is an Abstraction 设计是一种抽象
 1. 体系结构提供了设计的更高层抽象视角Architecture provides an higher level abstract view of a design
    1. 隐藏设计的复杂性和实现Hides complexity and implementation of design
    2. 可能是或者可能不是体系结构元素和软件元素之间的直接映射May or may not be a direct mapping between architecture elements and sottware elements 
@@ -93,9 +107,11 @@ Lec1-Introduction
 architecture
 3. 讨论：为什么在设计中使用抽象？Discussion: Why abstraction in design?
 
-## 2.9. 体系结构视角Architecture Views
+## 2.6. 体系结构视图 Architecture Views 应对软件不可见的问题
 1. 软件体系结构表示了一个复杂的设计制品A software architecture represents a complex design artifact
-2. 很多体系结构的可能视图：类比建筑-平面图，外部设计，电力设计，水暖，空气调节Many possible 'views' of the architecture:Analogy with buildings - floor plan, external, electrical, plumbing, air-conditioning
+2. 很多体系结构的可能视图：类比建筑-平面图，外部设计，电力设计，水暖，空气调节 Many possible 'views' of the architecture:Analogy with buildings-floor plan, external, electrical, plumbing, air-conditioning
+3. 使用视图可以应对软件不可见性的问题，屏蔽其他没有影响的部分。
+4. 将关注点进行分离
 
 # 3. 如何创建一个设计 How to Develop a Design?
 1. 广义的设计策略Generic Design Strategies:
@@ -113,12 +129,13 @@ architecture
 components are mapped on to the applications hardware.
 4. 发展视图：描述了软件部件是如何在软件内部组织的，比如配置管理工具Development view: captures the internal organization of the software components as held in e.g./ a configuration management tool.
 5. 使用体系结构的情况：描述了体系结构的需求，关系到了超过一个常规的视图Architecture use cases: capture the requirements for the architecture; related to more than one particular view
+6. 四个视图在某一个场景下进行描述
 
 ## 3.2. 体系结构和软件体系结构 Architect & Software Architect
 > 体系结构设计了满足人类需求的结构 Architects design structures to meet human needs. - James Fitch, 1972
 
 1. 体系结构的作用仍然保持着一致 The role of the architect remains the same
-   1. 监听客户端，理解整体的需求 Listening to clients, understanding the totality of needs
+   1. 倾听用户，理解整体的需求 Listening to clients, understanding the totality of needs
    2. 仔细检查灵活性 Scrutinizing feasibilities
    3. 形成一个实际的结构版本，创建一个蓝图 Forming a practical vision of a structure and creating a blueprint
    4. 监督构建过程，保证是符合规范的 Overseeing construction and ensuring compliance to the plan 
@@ -141,6 +158,8 @@ components are mapped on to the applications hardware.
 
 ## 3.4. 总体设计模型 A General Design Model
 ![](img/lec1/4.png)
+
+开发和设计是在做减法
 
 ## 3.5. 软件设计过程 Software Design Process
 ![](img/lec1/5.png)
@@ -192,7 +211,19 @@ components are mapped on to the applications hardware.
    4. 其他：在活动、关注点和领域上的不同，比如ACME，Rapide Others: differ in ability, focus and domain (e.g. ACME, Rapide)
 
 # 4. 讨论
-1. 科学和工程有什么不同？What is Difference between Science and Engineering?
+1. 科学和工程有什么不同？What is Difference between Science and Engineering? 
+   1. 科学的研究是研究这个世界既有的部分
+   2. 工程是研究的是人类创造新的世界(是不是因为人才产生的)
 2. 软件和硬件有什么不同？What is Difference between 'Software' and 'Hardware' ?
+   1. 软件是不可见的：软件是虚拟的，而硬件是实体的。
+   2. 软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)
 3. 体系结构和设计有什么不同？What is Difference between Architecture and Design?
+   1. 所有的体系结构都是软件设计，但是不是所有的软件设计都是体系结构
+   2. 体系结构是设计过程的一个过程。
+   3. 其他观点
+      1. 体系结构是更高层的设计，是为了修改的
+      2. 体系结构是设计决策的组合
 4. 体系结构和结构有什么不同？What is Difference between Architecture and Structure?
+   1. 体系结构定义了组件(Component)的接口，Component之间如何交流以及如何相互依赖，Component的职责。
+   2. 体系结构提供了设计的更高层抽象视角，隐藏设计的复杂性和实现，更强调非功能性需求。
+   3. 【标准】架构是包括结构信息的，因为结构是一种静态的、逻辑的、是关于系统如何构成。但是架构除了包含结构，还会增加组件的相互之间的关系接口，还会定义一些动态的行为(一个组件可能和谁进行交互)
