@@ -7,14 +7,14 @@ Lec2-Quality Attributes
 3. 架构包含了组件的行为 Architecture includes behaviour of components.
 
 ## 1.1. 架构扮演的角色 Role of Architecture
-1. 架构是代表决定**如何实现需求**的决策的**第一批人工制品**。作为早期设计决策的体现，架构代表了那些**最难**更改的设计决策，因此值得**最仔细的考虑**。An architecture is one of the first artefacts that represents decision on how requirements are to be achieved. As the manifestation of early design decisions, the architecture represents those design decisions that are hardest to change and hence deserve the most careful consideration.
-2. 架构是成功完成产品线工程，与独立开发每个系统相比，以较少的工作量，成本和风险来有序地开发一系列相似系统的关键要素。An architecture is the key artefact in achieving successful product line engineering, the disciplined development of a family of similar system with less effort, expense, and risk than developing each system independently.
-3. 当有人开始在系统上工作时，架构通常是首先要检查的设计工件。An architecture is usually the first design artefact to be examined when someone starts working on a system.
-4. 软件架构为**维护和修改**决策提供了参考**框架**。Software architecture provides a framework of reference for maintenance and modification decisions.
+1. 架构是代表决定**如何实现需求**的决策的**第一批人工制品**。作为早期设计决策的体现，架构代表了那些**最难**更改的设计决策，因此值得**最仔细的考虑** An architecture is one of the first artefacts that represents decision on how requirements are to be achieved. As the manifestation of early design decisions, the architecture represents those design decisions that are hardest to change and hence deserve the most careful consideration.
+2. 架构是成功完成产品线工程，与独立开发每个系统相比，以较少的工作量，成本和风险来有序地开发一系列相似系统的关键要素 An architecture is the key artefact in achieving successful product line engineering, the disciplined development of a family of similar system with less effort, expense, and risk than developing each system independently.
+3. 当有人开始在系统上工作时，架构通常是首先要检查的设计工件 An architecture is usually the first design artefact to be examined when someone starts working on a system.
+4. 软件架构为**维护和修改**决策提供了参考**框架** Software architecture provides a framework of reference for maintenance and modification decisions.
 
 ## 1.2. 为什么软件架构是重要的 Why is software architecture important?
 1. 软件架构提供了**沟通的工具** Software architecture provides a vehicle for communication
-   1. 这是一个可以确定和谈判利益冲突的参考框架 It is a frame of reference in which competing interests may be identified and negotiated
+   1. 软件架构是一个可以确定和谈判利益冲突的参考框架 It is a frame of reference in which competing interests may be identified and negotiated
       1. 和用户**讨论需求** Negotiating requirements with users
       2. **保证**客户获取到过程和成本的**信息** Keeping customer informed of progress, cost etc.
       3. **实现决策**和分配的管理 Implementing management decisions and allocations.
@@ -38,18 +38,19 @@ Lec2-Quality Attributes
 7. 架构将**更改**分为三种类型 Architecture categorise changes into three types:
    1. **本地**：信号组件修改 Local: signal component moditication
    2. **非本地**：几个组件修改。Non-local: several component moditication.
-   3. **架构**：修改系统的基本结构，通信和协调机制Architectural: modification of the system's basic structure, communication, and coordination mechanism
-8. 架构是一种**可迁移**和**可重用**的抽象：**一对多映射**(一种架构，许多系统)Architecture is a transferable and reusable abstraction——one-to-many mapping (one architecture, many systems)
-9. 架构是**产品通用性**的基础。 整个产品线共享一个架构 Architecture is the basis for product commonality. A whole product line shares a single architecture
-10. 可以通过体系结构集成独立开发的组件来开发系统(基于omponent的软件工程-CBSE) Systems can be developed by integrating independently developed components via architecture (( omponent- Based Software Engineering - CBSE)
+   3. **架构**：修改系统的基本结构，通信和协调机制 Architectural: modification of the system's basic structure, communication, and coordination mechanism
+8. 架构是一种**可迁移**和**可重用**的抽象：**一对多映射**(一种架构，许多系统) Architecture is a transferable and reusable abstraction one-to-many mapping (one architecture, many systems)
+9. 架构是**产品通用性**的基础。整个产品线共享一个架构 Architecture is the basis for product commonality. A whole product line shares a single architecture
+10. 可以通过体系结构集成独立开发的组件来开发系统(基于Component的软件工程-CBSE) Systems can be developed by integrating independently developed components via architecture ((Component-Based Software Engineering - CBSE)
 
 ## 1.3. 软件架构过程 Software Architecture Process
 ![](img/lec2/1.png)
 
-1. 首先通过Stackholder来出ASR(架构攸关的需求)
-2. ASR的描述形式是scenarios的格式，之后生成的是Requirements和Constraints，综合得到的架构设计
-3. 之后将架构设计生成文档
-4. 最后将文档进行进一步的评估，需要stackholders的参与、也需要将优先级高的架构属性拿来参考
+1. 通过StackHolder获取到ASRs(架构攸关的需求)
+2. 通过分析得到Prioritized Quality Attribute Scenarios(高优先级质量属性解决方案)和Requirements，Constraints(需求和约束)
+3. 将上述部分，结合模式和策略，综合可以得到架构的设计
+4. 根据架构的设计得到由模式决定的候选视图的示意图，之后完成文档化
+5. 选择、组合视图，将文档进行进一步的评估，这一部分需要StackHolders的参与、也需要Prioritized Quality Attribute Scenarios和文档等作为参考。
 
 ### 1.3.1. 移动手机系统架构 Mobile Phone System Architecture
 ![](img/lec2/2.png)
@@ -58,10 +59,22 @@ Lec2-Quality Attributes
 ![](img/lec2/3.png)
 
 ## 1.4. 讨论 Discussion
-1. 科学和工程有什么不同？What is Difference between Science and Engineering?
-2. 软件和硬件有什么不同？What is Difference between 'Software' and 'Hardware'?
-3. 架构和设计有什么不同？What is Difference between Architecture and Design?
-4. 架构和结构有什么不同？What is Difference between Architecture and Structure?
+1. 科学和工程有什么不同？What is Difference between Science and Engineering? 
+   1. 科学的研究是研究这个世界既有的部分
+   2. 工程是研究的是人类创造新的世界(是不是因为人才产生的)
+2. 软件和硬件有什么不同？What is Difference between 'Software' and 'Hardware' ?
+   1. 软件是不可见的：软件是虚拟的，而硬件是实体的。
+   2. 软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)
+3. 体系结构和设计有什么不同？What is Difference between Architecture and Design?
+   1. 所有的体系结构都是软件设计，但是不是所有的软件设计都是体系结构
+   2. 体系结构是设计过程的一个过程。
+   3. 其他观点
+      1. 体系结构是更高层的设计，是为了修改的
+      2. 体系结构是设计决策的组合
+4. 体系结构和结构有什么不同？What is Difference between Architecture and Structure?
+   1. 体系结构定义了组件(Component)的接口，Component之间如何交流以及如何相互依赖，Component的职责。
+   2. 体系结构提供了设计的更高层抽象视角，隐藏设计的复杂性和实现，更强调非功能性需求。
+   3. 【标准】架构是包括结构信息的，因为结构是一种静态的、逻辑的、是关于系统如何构成。但是架构除了包含结构，还会增加组件的相互之间的关系接口，还会定义一些动态的行为(一个组件可能和谁进行交互)
 5. 为什么要在架构中使用抽象？Why Abstraction in Architecture?
    1. 更高层的视角，更关注本身的结构而不是本身的实现。
    2. **降低**架构设计时的系统复杂度，可以屏蔽和**隐藏**一些细节。
@@ -69,7 +82,7 @@ Lec2-Quality Attributes
 # 2. 需求 Requirements
 ![](img/lec2/4.png)
 
-开发人员和用户的矛盾
+需求中往往存在有开发人员和用户的矛盾，我们需要将这一个部分进行转化
 
 ## 2.1. 功能性需求 Functional Requirements
 1. 功能性需求定义了**系统必须做什么**并且强调了**系统如何提供价值**给涉众 Functional requirements state what the system must do and address how the system provides value to the stakeholders.
@@ -79,37 +92,37 @@ Lec2-Quality Attributes
 number of possible structures.
 5. 功能在很大程度上与结构无关，因为它可以作为单个整体系统存在而没有任何内部结构。Functionality is **largely independent of structure**, because it could exist as a single monolithic system without any internal structure.
 
-## 2.2. 质量性需求 Quality Requirements
+## 2.2. 质量需求 Quality Requirements
 1. 质量需求是系统应**在其功能要求之上**提供的整个系统的**合乎需要的特性**(又称质量属性) Quality requirements are desirable characteristics of the overall system (aka. quality attrilbutes) that system should provide on the top of its functional requirements.
 2. 质量要求是功能要求或整个产品的**资格**。软件体系结构限制了分配 Quality requirements are qualifications of the functional requirements or of the overall product.
 3. 如果质量属性很重要，则将**功能**(映射)到各种**结构**上。Software architecture constrains the allocatio (mapping) of the functionality onto various structures if quality attributes are important.
 
 ### 2.2.1. 非功能性需求 Non-functional Requirements
-1. **非功能**要求或**体系结构**要求是用于**质量属性**的替代术语。Non-functional requirements or architectural requirements are alternative terms used for quality attributes.
+1. **非功能**要求或**体系结构**要求是用于**质量属性**的替代术语 Non-functional requirements or architectural requirements are alternative terms used for quality attributes.
 2. 无法正确使用功能，然后尝试适应非功能性要求(**不具备翻新质量**)。It is not possible to get the functionality right and then try to accommodate non-functional requirements (NO retro-fitting quality).
 3. 在任何设计决策中都必须考虑非功能性要求。Non-functional requirements must be taken into account during any design decision.
 4. 非功能性需求分为两大类：There are two broad categories ot non-functional requirements:
    1. 在执行过程中**可观察**(**外部**)：系统满足其行为要求的程度如何？ 例如性能，安全性，可用性，可用性等。Observable (External) during execution: How well a system satisties its behavioural requirements? e.g., performance, security, availability, usability etc.
    2. 执行期间**不可观察**(**内部**)：系统的维护，集成或测试有多容易？ 例如，可修改性，可移植性，可重用性，可测试性等。Not observable (Internal) during execution: How easily a system can be maintained, integrated, or tested? e.g., modifiability, portability, reusability, testability etc.
-5. 约束限定的边界，之后的架构是在这个边界内找到最优的解。
+5. 约束了限定的边界，之后的架构是在这个边界内找到最优的解。
 
 ### 2.2.2. 质量属性 Quality Attributes
-1. **开发完成后**，质量**不能**添加到软件密集型系统中。Quality isn't something that can be added to a software intensive system after development finishes.
-2. 在**软件开发的所有阶段**都需要解决质量问题。Quality corncerns need to be addressed during ALL phases of the software development.
+1. **开发完成后**，质量**不能**添加到软件密集型系统中 Quality isn't something that can be added to a software intensive system after development finishes.
+2. 在**软件开发的所有阶段**都需要解决质量问题 Quality corncerns need to be addressed during ALL phases of the software development.
 3. 业务目标确定系统必须具备的质量。Business goals determine qualities that a system must posses.
-4. 质量属性是**系统功能的基础**，而功能是系统功能，服务和行为的基本说明。Quality attributes are over and above of system's functionality, which is the basic statement of the system's capabilities, services, and behaviours.
-5. 功能通常在开发计划中占据**重要位置**。Functionality usually takes the front seat in the development plan.
-6. 但是，系统通常是**重设计**的，因为它们**缺乏所需的质量级别**，即难以维护，移植或扩展。However, systems are usually redesigned because they lack desired level of quality, i.e. difficult to maintain, port, or scale.
-7. 软件体系结构限制了各种质量属性的实现，例如性能，安全性，可用性等。Software architecture constrains the achievement of various quality attributes, e.g., performance, security, usability etc.
-8. 这就是为什么软件体系结构被认为是解决质量问题的最合适的层次。That is why software architecture is considered the most appropriate level of addressing the quality Issues.
-9. 质量属性不完全取决于**设计**，也不取决于**实现或部署**。No quality attribute is entirely dependent on design, nor is it dependent on implementation or deployment.
+4. 质量属性是**系统功能的基础**，而功能是系统功能，服务和行为的基本说明 Quality attributes are over and above of system's functionality, which is the basic statement of the system's capabilities, services, and behaviours.
+5. 功能通常在开发计划中占据**重要位置** Functionality usually takes the front seat in the development plan.
+6. 但是，系统通常是**重新设计**的，因为它们**缺乏所需的质量级别**，即难以维护，移植或扩展 However, systems are usually redesigned because they lack desired level of quality, i.e. difficult to maintain, port, or scale.
+7. 软件体系结构限制了各种质量属性的实现，例如性能，安全性，可用性等 Software architecture constrains the achievement of various quality attributes, e.g., performance, security, usability etc.
+8. 这就是为什么软件体系结构被认为是解决质量问题的最合适的层次 That is why software architecture is considered the most appropriate level of addressing the quality Issues.
+9. 质量属性不完全取决于**设计**，也不取决于**实现或部署** No quality attribute is entirely dependent on design, nor is it dependent on implementation or deployment.
 
 ### 2.2.3. 确定质量属性 Specifying Quality Attributes
 1. 要在架构级别对其进行**评估**，必须对质量属性进行**精确定义**。Precise definition of a quality attribute is necessary to evaluate it at the architecture level.
 2. 质量属性**方案**用于定义所需的质量属性。Quality attribute scenarios are used to define the desired quality attribute.
-3. 场景是具有一定结构的简单句子。场景的两个主要类别是：Scenarios are simple descriptions with certain structure. Two main classes of scenarlos are:
-   1. **通用方案**是与**系统无关**的方案，用于指导质量属性要求的规范。General scenarios are system independent scenarios to guide the specification of quality attribute requirements.
-   2. **具体方案**是系统**特定**方案，用于指导特定系统的质量属性要求的规范。它们是一般方案的**实例**。Concrete scenarios are system specitic scenarios to guide the specification of quality attribute requirements tor a particular system. They are instances ot general scenarlos.
+3. 方案是具有一定结构的简单句子。场景的两个主要类别是：Scenarios are simple descriptions with certain structure. Two main classes of scenarlos are:
+   1. **通用方案**是与**系统无关**的方案，用于指导质量属性要求的规范 General scenarios are system independent scenarios to guide the specification of quality attribute requirements.
+   2. **具体方案**是系统**特定**方案，用于指导特定系统的质量属性要求的规范。它们是一般方案的**实例** Concrete scenarios are system specitic scenarios to guide the specification of quality attribute requirements tor a particular system. They are instances ot general scenarlos.
 4. 这个方案就是4+1视图中的1(Use Case)
 
 #### 2.2.3.1. 通用方案 General Scenarios
@@ -134,19 +147,19 @@ number of possible structures.
 1. 风格或样式运用策略来提供预期的收益 Style or pattern applies tactics to provide the promised benefit.
 2. 策略是影响质量属性响应**控制**的**设计决策**，例如冗余。A tactic is a design decision, .e.g. redundancy, that influences the control of a quality attribute response.
 3. 策略的**集合**称为体系结构策略。A collection of tactics is called an architectural strategy.
-4. 系统设计包括一组设计决策，其中一些决策可帮助控制**质量**属性响应；其他确保系统**功能**的实现。A system design consists of a collection of design decisions: some of these decisions help control the quality attribute response; others ensure achievement of system functionality.
-5. 像模式一样，策略也可以由其他策略组成，例如，冗余可以由数据的冗余，计算的冗余组成。设计人员根据需求选择一个或另一个。Like patterns, tactics may also be composed of other tactics, e.g., redundancy may be composed of redundancy of data, redundancy of computation-Designer chooses one or other depending upon requirements.
-6. 策略可以用作**策略等级**。Tactics can be used as hierarchy of tactics.
+4. 系统设计包括一组设计决策，其中一些决策可帮助控制**质量**属性响应；其他确保系统**功能**的实现 A system design consists of a collection of design decisions: some of these decisions help control the quality attribute response; others ensure achievement of system functionality.
+5. 像模式一样，策略也可以由其他策略组成，例如，冗余可以由数据的冗余，计算的冗余组成。设计人员根据需求选择一个或另一个 Like patterns, tactics may also be composed of other tactics, e.g., redundancy may be composed of redundancy of data, redundancy of computation-Designer chooses one or other depending upon requirements.
+6. 策略可以用作**策略等级** Tactics can be used as hierarchy of tactics.
 
 ![](img/lec2/6.png)
 
 #### 2.2.3.4. 质量设计决策 Quality Design Decisions
-1. 架构是设计决策的集合。Archtecture is a collection of design decisions. 
+1. 架构是设计决策的集合。Architecture is a collection of design decisions. 
 2. 七类设计决策(可能重叠) Seven categories of design decisions (may overlap):
    1. **职责分配** Allocation of responsibilities：将大的职责进行分配
    2. **协调模型** Coordination model：各部分之间的沟通、交互
    3. **数据模型** Data model：数据格式、存储方式(缓存等)
-   4. **资源管理** Management of resources：CPU、网络、内存、**时间(部分时间敏感的场景)**等资源
+   4. **资源管理** Management of resources：CPU、网络、内存、**时间(部分时间敏感的场景)等资源**
    5. **架构元素之间的映射** Mapping among architecture elements：将架构元素如何映射到软件的实现上
    6. **绑定时间决策** Binding time decisions：
       1. 系统的变化可以在什么时间点前需要固定下来，也就是这个时间前，系统还是可以变化的，但是这个时间之后就不可以变化了
@@ -178,17 +191,16 @@ number of possible structures.
 21. Stability
 22. Usability
 23. Security
-24. 第一次作业分析课上没有涉及到的质量属性
 
 ## 2.3. 约束 Constraints
-1. 约束是具有**零自由度**的设计决策。A constraint is a design decision with ZERO degrees of freedom.
+1. 约束是具有**零自由度**的设计决策。A constraint is a design decision with **ZERO** degrees of freedom.
 2. 约束是已经做出的**预先**指定的设计决策。Constraints are pre-specified design decisions that have been already made.
 3. 通过**接受**设计决策并将其与其他受影响的设计决策进行**协调**，可以满足约束条件。Constraints are satisfied by accepting the design decision and reconciling it with other affected design decisions.
 
 # 3. 质量属性和策略 Quality Attributes & Tactics
 
 ## 3.1. 可用性 Availability
-1. 什么是可用性：应用程序的**关键**要求 Key requirement for most IT applications
+1. 可用性是应用程序的**关键**要求 Key requirement for most IT applications
 2. 度量方式：以**所需**的可用**时间**比例来衡量，例如 Measured by the proportion of the required time it is useable, e.g.
    1. 营业时间内100％可用 100% available during business hours
    2. 每周计划的停机时间不超过2个小时-24x7x52(100％可用性) No more than 2 hours scheduled downtime per week - 24x7x52 (100% availability)
@@ -201,10 +213,10 @@ number of possible structures.
    1. **发现**故障的时间 Time to detect failure
    2. **纠正**故障的时间 Time to correct failure
    3. **重启**应用的时间 Time to restart application
-   4. 例子(时间序)：发生故障-检测到故障-纠正故障-重启应用，这三个-代表的是not available的时间(N/A)
+   4. 例子(时间序)：发生故障-检测到故障-纠正故障-重启应用，这三个代表的是not available的时间(N/A)
    5. 提高可用性的方案
       1. 尽可能降低N/A的时间
-         1. 机器尽可能缩短failure到Detect时间
+         1. 机器尽可能缩短failure到detect时间
          2. 机器尽可能缩短correct到restart的时间
       2. 尽可能提高Available的时间
 5. 高可用性策略 Strategies for high availability
@@ -223,7 +235,7 @@ $$
 
 8. 计算可用性时，可能不考虑**计划内的停机时间**。Scheduled downtimes may not be considered when calculating availability.
 
-## 3.2. Outage, Failure, Fault, Error
+### 3.1.1. Outage, Failure, Fault, Error
 1. 可用性是指通过**减少**故障来最大程度地减少服务**中断**时间。Availablity is about minimizing the service outage time by mitigating faults.
 2. **Failure的原因**称为**Fault**。A failure's cause is called a fault.
 3. 当系统无法交付该系统期望的服务时，将发生Failure。A failure occurs when a system cannot deliver a service that is expected of that system.
@@ -236,14 +248,14 @@ $$
    3. Fault：是系统导致Failure的原因，Fault不会立即导致Failure
    4. Error：在Fault发生与Failure的中间状态。
 
-## 3.3. 服务水平协议 Service-Level Agreement
+### 3.1.2. 服务水平协议 Service-Level Agreement
 ![](img/lec2/8.png)
 
 1. Amazon EC2的SLA Amazon EC2's SLA
 2. AWS将通过商业上合理的努力来使Amazon EC2在服务年度内的年度正常运行率至少达到99.95％。如果Amazon EC2不符合年度正常运行时间百分比承诺，您将有资格获得服务信用。AWS will use commercially reasonable efforts to make Amazon EC2 available with an Annual Uptime Percentage of at least 99.95% during the Service Year. In the event Amazon EC2 does not meet the Annual Uptime Percentage commitment, you will be eligible to receive a Service Credit.
 3. 99.95%的是99.9%的一半
 
-## 3.4. 对于Failure的计划 Planning for Failure
+### 3.1.3. 对于Failure的计划 Planning for Failure
 1. 危害分析 Hazard analysis: 对Failure进行分类
    1. 灾难性的/危险 Catastrophic/ Hazardous
    2. 重大的/轻微的 Major/ Minor 
@@ -260,9 +272,7 @@ $$
 
 ![](img/lec2/10.png)
 
-## 3.5. 可用性 Availability
-
-### 3.5.1. 可用性通用方案 Availability General Scenario
+### 3.1.4. 可用性通用方案 Availability General Scenario
 ![](img/lec2/11.png)
 
 1. source：可能是内部的，也可能是外部的，可能是人、设施、硬件等等，无论是哪一类都会引起可用性的问题，都能发出一个刺激
@@ -272,7 +282,7 @@ $$
 5. 反应：错误发生后一些的可能反应，recover是correct的时间
 6. 反应度量：时间上、可用性的描述(多长时间，可以用多少)
 
-### 3.5.2. 可用性例子方案 Availability Sample Scenario
+### 3.1.5. 可用性具体方案 Availability Sample Scenario
 ![](img/lec2/12.png)
 
 1. Source没有收到Heartbeat认为出现了一个Failure
@@ -281,15 +291,45 @@ $$
 4. 最后会发送一个回复
 5. 整体发生在一个正常运转的环境中
 
-### 3.5.3. 可用性策略 Availability Tactics
+### 3.1.6. 可用性策略 Availability Tactics
 ![](img/lec2/13.png)
 
 1. 这个树说明了对于可用性可以采用哪些手段来解决可用性：很重要
 2. 每一个树的分支代表了我们考虑的时间点：尽可能的延长可用时间
+3. 不同的检测服务可用的手段
+   1. 主动发送心跳：Heart Beat
+      1. 资源的损耗有一次通讯
+      2. 可以同时承担更多的业务(定期更新状态)
+      3. 自动化检测，更为定时的服务
+      4. 单向更为安全
+   2. 被动接受检测：Ping/Echo 或 Minotor
+      1. 资源损耗有两次通讯
+      2. 更加灵活自助，根据自己的情况进行检测
+      3. 双向确认
+   3. TimeStamp
+      1. 收到一系列的消息应该在时间上有先后顺序
+      2. 进行常识的信息的检查，如果和常识不符合那么可能是出现了问题
+   4. 自检：检查一下自己是否有问题
+4. Preparation and Repair
+   1. Active Redundancy 冗余部分是都在工作的，如果没有发现问题时，我们只接受Primary的输入，而Secondary的输入会被抛弃，有明显的downTime
+   2. Passive Redundancy：Primary同步到Secondary上，而如果Primary挂掉了，则启用Secondary，并快速操作(从上一个状态)，不一定有明显的DownTime，一般选择使用Passive的方式
+   3. Spare：组合在一起使用
+   4. Rollback：回滚解决不一致的问题
+   5. Retry
+   6. Ignore Faulty Behavior
+   7. Degradation：服务降级，比如Windows的安全模式，让目前已经发生的问题不再影响系统的修复
+   8. Reconfiguration：
+5. Reintroduction：
+   1. shadow
+   2. State Retry Resynchronized
+   3. Escalating Restart
+   4. Non-Stop Forwarding
+6. Denial of Service：Dos攻击：大量无效的请求将资源耗尽以阻止提供正常的服务
+7. 上述的操作可能不仅仅涉及到一个质量属性
 
-### 3.5.4. Fault
+### 3.1.7. Fault
 
-#### 3.5.4.1. Fault 探测 Fault Detection
+#### 3.1.7.1. Fault 探测 Fault Detection
 1. Ping/Echo
    1. 一个组件发出ping命令，并期望在预定时间内在另一个组件上产生回波。One component issues a ping and expects, an echo from another component within a pre-detined time.
    2. Ping/Echo可以在负责一项任务的一组组件中使用。Ping/Echo can be used within a group of components responsible for one task.
@@ -301,7 +341,7 @@ $$
    2. 异常处理程序通常在引入异常的同一过程中执行。The exception handler typically executes in the same process that introduces the exception.
 4. ping和心跳策略在不同的进程中运行，异常策略在单个进程中运行。The ping and heartbeat tactics operate among distinct processes, and the exception tactic operates within a single process.
 
-#### 3.5.4.2. Fault 恢复 Fault Recovery
+#### 3.1.7.2. Fault 恢复 Fault Recovery
 1. 表决 Voting
    1. 在冗余处理器上运行的进程每个都接受等效输入并计算一个简单值，该值将发送给投票者。Processes running on redundant processors each take equivalent input and compute a simple value that is sent to a voter.
    2. 如果投票者从单个过程中检测到异常行为，则它会使失败。If the voter detects deviant behaviour from a single process, it fails it.
@@ -327,12 +367,12 @@ $$
 10. 过程监控器 Process monitor
     1. 一旦检测到流程中的故障，监视流程就可以检测到不良流程并为其创建新实例，并按照备用策略将其初始化为适当的状态。Once a fault in a process has been detected, a monitoring process can detect the non- pertorming process and create a new instance ot it, initialised to some appropriate state as in the spare tactic.
 
-### 3.5.5. 可用性设计和分析的检查列表 Checklist for Availability Design & Analysis
+### 3.1.8. 可用性设计和分析的检查列表 Checklist for Availability Design & Analysis
 | ![](img/lec2/14.png) | ![](img/lec2/15.png) |
 | -------------------- | -------------------- |
 
-## 3.6. 互操作性 Interoperability
-1. 互操作性是指两个或多个系统可以在特定上下文中**通过接口**完全**改变**有意义的信息的程度 Interoperability is about the degree to which two or more systems can usefully exchange meaningful information via interfaces in a particular context.
+## 3.2. 互操作性 Interoperability
+1. **互操作性**是指两个或多个系统可以在特定上下文中**通过接口**完全**改变**有意义的信息的程度 Interoperability is about the degree to which two or more systems can usefully exchange meaningful information via interfaces in a particular context.
    1. **交换**数据的能力(**语法**互操作性)Ability to exchange data (syntactic interoperability)
    2. 能够正确**解释**数据(**语义**互操作性)Ability to correctly interpret the data (semantic interoperability)
 2. 互操作性需要确定与**谁，什么以及在什么情况**下(上下文)。Interoperability needs to identify with whom, with what, and under what circumstances (the context). 
@@ -345,13 +385,13 @@ $$
       2. 将其响应**发送**到另一个系统。sends its response on to another system.
       3. 向任何感兴趣的各方**广播**其回复。broadcasts its response to any interested parties.
 
-### 3.6.1. 互操作性的通用方案 Interoperability General Scenario
+### 3.2.1. 互操作性的通用方案 Interoperability General Scenario
 ![](img/lec2/16.png)
 
-### 3.6.2. 互操作性的样本方案 Interoperability Sample Scenario
+### 3.2.2. 互操作性的样本方案 Interoperability Sample Scenario
 ![](img/lec2/17.png)
 
-### 3.6.3. 互操作性的策略 Interoperability Tactics
+### 3.2.3. 互操作性的策略 Interoperability Tactics
 ![](img/lec2/18.png)
 
 1. 定位 Locate
@@ -360,12 +400,14 @@ $$
 2. 管理界面 Manage interfaces
    1. **编排**：使用控制机制来协调，管理和排序特定服务的调用。Orchestrate: uses a control mechanism to coordinate and manage and sequence the invocation of particular services.
    2. **定制界面**：添加或删除界面功能 Tailor interface: adds or removes capabilities to an interface.
+3. Orchestrate：请求，一个请求会涉及到多个Service，我们需要按照一定顺序进行处理请求
 
-### 3.6.4. 互操作性的检查列表 Checklist for Interoperability Design & Analysis
+### 3.2.4. 互操作性的检查列表 Checklist for Interoperability Design & Analysis
 | ![](img/lec2/19.png) | ![](img/lec2/20.png) |
 | -------------------- | -------------------- |
 
-## 3.7. 可修改性 Modifiability
+
+## 3.3. 可修改性 Modifiability
 1. 可修改性涉及**更改**以及进行更改所**花费的时间或金钱**，包括这种可更改性影响其他功能或质量属性的程度。Modifiability deal with change and the cost in time or money of making a change, including the extent to which this modifiability affects other functions or quality attributes.
 2. 为变更做**准备**是有代价的，而**进行**变更则要付出代价。There is a cost of prepraring for change as well as a cost of making a change.
 3. 计划可修改性的四个问题 Four questions to plan for modifiability
@@ -374,15 +416,16 @@ $$
    3. **何时**进行更改，谁进行更改？When is the change made and who makes it?
    4. 变更的**费用**是多少？What is the cost of the change?
 4. 如果更改少于预期，则可能不需要昂贵的修改机制。If fewer changes than expected come in, then an expensive modification mechanism may not be warranted.
-5. N * 不使用机械装置进行更改的成本 $\leq$ 安装机械装置的成本 +(N *使用机械装置进行更改的成本)。
+5. 计算公式：N * 不使用机械装置进行更改的成本 $\leq$ 安装机械装置的成本 +(N *使用机械装置进行更改的成本)
+6. 降低的成本可以用于提高可修改性
 
-### 3.7.1. 可修改性的通用方案 Modifiability General Scenario
+### 3.3.1. 可修改性的通用方案 Modifiability General Scenario
 ![](img/lec2/21.png)
 
-### 3.7.2. 可修改性的样本方案 Modifiability Sample Scenario
+### 3.3.2. 可修改性的样本方案 Modifiability Sample Scenario
 ![](img/lec2/22.png)
 
-### 3.7.3. 可修改性的策略 Modifiability Tactics
+### 3.3.3. 可修改性的策略 Modifiability Tactics
 ![](img/lec2/23.png)
 
 1. **拆分模块**：如果要修改的模块包含**大量功能**，则修改成本可能会很高。Split module: If the module being modified includes a great deal of capabilities, the modification costs will likely be high.
@@ -392,25 +435,25 @@ $$
 5. 当两个模块受到相同更改的影响时，请进行**重构**。Refactor when two modules are affected by the same change.
 6. **延迟绑定**：在生命周期中与初始定义阶段**不同的阶段**绑定某些参数的值。Defer binding: Binds the value of some parameters at a different phase in the life cycle than the one in which they are initially defined.
 
-### 3.7.4. Checklist for Modifiability Design and Analsis
+### 3.3.4. Checklist for Modifiability Design and Analsis
 
 | ![](img/lec2/24.png) | ![](img/lec2/25.png) |
 | -------------------- | -------------------- |
 
-## 3.8. 性能 Performance
+## 3.4. 性能 Performance
 1. 性能与**时间**有关，软件与系统满足时序要求的能力有关。Performance is about time and the software system's ability to meet timing requiements.
 2. 所有系统都有性能要求，即使未明确表示也是如此。All systems have pertormance requirements, even it they are not explicitly expressed.
 3. 响应时间的两个基本因素 Two basic contributors to the response time
    1. 处理时间(系统**正在**响应时) processing time (when the system is working to response)
    2. 阻塞时间(系统**无法**响应时) blocked time (when the system is una able to response)
 
-### 3.8.1. 性能的通用方案 Performance General Scenario
+### 3.4.1. 性能的通用方案 Performance General Scenario
 ![](img/lec2/26.png)
 
-### 3.8.2. 性能的样本方案 Performance Sample Scenario
+### 3.4.2. 性能的样本方案 Performance Sample Scenario
 ![](img/lec2/27.png)
 
-### 3.8.3. 性能的策略 Tactics for Performance
+### 3.4.3. 性能的策略 Tactics for Performance
 ![](img/lec2/28.png)
 
 1. 在**需求**方面 On the demand side
@@ -426,25 +469,25 @@ $$
       1. 快取 caching
       2. 资料复制 data replication
 
-### 3.8.4. Checklist for Performance Design and Analysis
+### 3.4.4. Checklist for Performance Design and Analysis
 
 | ![](img/lec2/29.png) | ![](img/lec2/30.png) |
 | -------------------- | -------------------- |
 
-## 3.9. 安全性 Security
+## 3.5. 安全性 Security
 1. 安全性衡量系统**保护**数据和信息免遭**未授权访问**的能力，同时仍提供对授权人员和系统的访问权限。Security measures system's ability to protect data and information from unauthorized access while still providing access to people and systems that are authorized.
 2. 安全性的三个特征：(CIA) Three characteristics of security: (CIA)
    1. 机密性，Confidentiality：防止**未经授权**访问数据和服务。Confidentiality: Data and services are pretected from unauthorized access.
    2. 完整性，Integrity：数据和服务不会受到**未经授权**的操纵。Integrity: Data and services are not subject to unauthorized manipulation.
    3. 可用性，Availability：系统将可供**合法使用**。Availability: The system will be available for legitimate use.
 
-### 3.9.1. 安全性的通用方案 Security General Scenario
+### 3.5.1. 安全性的通用方案 Security General Scenario
 ![](img/lec2/31.png)
 
-### 3.9.2. 安全性的样本方案 Security Sample Scenario
+### 3.5.2. 安全性的样本方案 Security Sample Scenario
 ![](img/lec2/32.png)
 
-### 3.9.3. 安全性的策略 Security Tactics
+### 3.5.3. 安全性的策略 Security Tactics
 ![](img/lec2/33.png)
 
 1. 通过将系统内的网络流量或服务请求模式与一组签名或已知模式进行比较来检测**入侵** Detect intrusion by comparing network traffic or service request patterns within a system to a set of signatures or known patterns.
@@ -458,24 +501,24 @@ $$
 9. **加密**数据。Encrypt data.
 10. 正在进行攻击时，撤消对**敏感资源**的访问。Revoke access to sensitive resources when an attack is underway.
 
-### 3.9.4. 安全性的检查列表 Checklist for Security Design and Analysis
+### 3.5.4. 安全性的检查列表 Checklist for Security Design and Analysis
 | ![](img/lec2/34.png) | ![](img/lec2/35.png) |
 | -------------------- | -------------------- |
 
-## 3.10. 可测试性 Testability
+## 3.6. 可测试性 Testability
 1. 可测试性是指可以使软件通过(通常基于执行)测试来证明其故障的难易程度。Testability refers to ease with which software can be made to demonstrate its faults through (typically execution-based) testing.
 2. 为了使系统能够正确测试，必须有可能控制每个分量S的输入，然后观察其输出。For a system to be properly testable, it must be possible to control each component s inputs and then to observe its outputs.
 
 ![](img/lec2/36.png)
 
-### 3.10.1. 可测试性的通用方案 Testability General Scenario
+### 3.6.1. 可测试性的通用方案 Testability General Scenario
 
 ![](img/lec2/37.png)
 
-### 3.10.2. 可测试性的样本方案 Testability Sample Scenario
+### 3.6.2. 可测试性的样本方案 Testability Sample Scenario
 ![](img/lec2/38.png)
 
-### 3.10.3. 可测试性的策略 Testability Tactcs
+### 3.6.3. 可测试性的策略 Testability Tactcs
 ![](img/lec2/39.png)
 
 1. **控制和观察系统状态**：维护某种状态信息，允许测试人员为该状态信息分配一个值，和/或使测试人员可以按需访问该信息。Control and observe system state: Maintain some sort of state information, allow testers to assign a value to that state information, and/or make that information accessible to testers on demand.
@@ -490,11 +533,11 @@ $$
    2. 限制**不确定性**-限制**行为复杂性** Limit nondeterminism - limiting behavioral complexity.
       1. 非确定性系统更难测试。Nondeterminism systems are harder to test.
 
-### 3.10.4. 可测试性的检查列表 Checklist for Testability Design and Analysis
+### 3.6.4. 可测试性的检查列表 Checklist for Testability Design and Analysis
 | ![](img/lec2/40.png) | ![](img/lec2/41.png) |
 | -------------------- | -------------------- |
 
-## 3.11. 易用性 Usability
+## 3.7. 易用性 Usability
 1. 可用性与用户完成所需任务的**难易程度**以及系统提供的用户**支持**的类型有关。Usability is concerned with h how easy it is for the user to accomplish a desired task and the kind of user support the system provides.
 2. 可用性包括以下几个方面：Usability comprises the following aspects:
    1. **学习**系统功能 Learning system features
@@ -503,13 +546,13 @@ $$
    4. 使系统**适应**用户需求 Adapting the system to user's needs
    5. 增强信心和**满意度** Increasing confidence and satistaction
 
-### 3.11.1. 易用性的通用方案 Usability General Scenario
+### 3.7.1. 易用性的通用方案 Usability General Scenario
 ![](img/lec2/42.png)
 
-### 3.11.2. 易用性的样本方案 Usbility Sample Scenario
+### 3.7.2. 易用性的样本方案 Usbility Sample Scenario
 ![](img/lec2/43.png)
 
-### 3.11.3. 易用性的策略 Usability Tactics
+### 3.7.3. 易用性的策略 Usability Tactics
 ![](img/lec2/44.png)
 
 1. 支持用户主动权：支持用户纠正错误或提高效率。Support user initiative: support the user in either correcting errors or being more efficient.
@@ -522,12 +565,12 @@ $$
    2. 维护**用户模型**：代表用户的关于**系统的知识**。Maintain user model: Represent the user's knowledge of system.
    3. 维护**系统模型**：确定预期的**系统行为**，以便可以向用户提供适当的反馈。Maintain system model: Determine expected system behavior so that appropriate feedback can be given to the user.
 
-### Checklist for Usbility Design and Analysis
+### 3.7.4. Checklist for Usbility Design and Analysis
 
 | ![](img/lec2/45.png) | ![](img/lec2/46.png) |
 | -------------------- | -------------------- |
 
-## 3.12. 更多的能力 X-ability
+## 3.8. 更多的能力 X-ability
 ![](img/lec2/47.png)
 
 # 4. 在架构上重要的要求 Architecturally Significant Requirements
@@ -599,3 +642,8 @@ $$
 | ![](img/lec2/55.png) | ![](img/lec2/56.png) |
 | ![](img/lec2/57.png) | ![](img/lec2/58.png) |
 | ![](img/lec2/59.png) |                      |
+
+# 5. 第一次作业
+1. 至少一个是上课列出的质量属性的单子中，另一个可以不再上课列出的质量属性的单子
+2. 建议使用表格的形式(一个tactics会对多个质量属性产生影响)
+3. 第一页上写好姓名和学号
