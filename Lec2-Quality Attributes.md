@@ -428,12 +428,13 @@ $$
 ### 3.3.3. 可修改性的策略 Modifiability Tactics
 ![](img/lec2/23.png)
 
-1. **拆分模块**：如果要修改的模块包含**大量功能**，则修改成本可能会很高。Split module: If the module being modified includes a great deal of capabilities, the modification costs will likely be high.
-2. **增加语义一致性**：如果模块中的职责A和B不能达到**相同的目的**，则应通过创建新模块或将职责移至现有模块将它们放置在不同的模块中。Increase semantic coherence: If the responsibilities A and B in a module do not serve the same purpose, they should be placed in different modules by creating a new module or moving a responsibility to an existing module.
-3. **封装**为模块引入了显式**接口**，并减少了对一个模块的更改**传播**到其他模块的可能性。Encapsulation introduces an explicit interface to a module, and reduces the probability that a change to one module propagates to other modules.
-4. 使用**中介**打破**依赖**。Use an intermediary breaks a dependency.
-5. 当两个模块受到相同更改的影响时，请进行**重构**。Refactor when two modules are affected by the same change.
-6. **延迟绑定**：在生命周期中与初始定义阶段**不同的阶段**绑定某些参数的值。Defer binding: Binds the value of some parameters at a different phase in the life cycle than the one in which they are initially defined.
+1. Reduce Size of a Module：**拆分模块**：如果要修改的模块包含**大量功能**，则修改成本可能会很高(尽可能的控制包的大小)。Split module: If the module being modified includes a great deal of capabilities, the modification costs will likely be high.
+2. Increase Cohesion：**增加语义一致性**：如果模块中的职责A和B不能达到**相同的目的**，则应通过创建新模块或将职责移至现有模块将它们放置在不同的模块中。Increase semantic coherence: If the responsibilities A and B in a module do not serve the same purpose, they should be placed in different modules by creating a new module or moving a responsibility to an existing module.
+3. Reduce Coupling：
+   1. **封装**为模块引入了显式**接口**，并减少了对一个模块的更改**传播**到其他模块的可能性。Encapsulation introduces an explicit interface to a module, and reduces the probability that a change to one module propagates to other modules.
+   2. 使用**中介**打破**依赖**：所有的组件都要通过中间的组件进行通信，使用反模式等方法解决。Use an intermediary breaks a dependency.
+   3. 当两个模块受到相同更改的影响时，请进行**重构**：不同于代码重构 Refactor when two modules are affected by the same change.
+4. Defer Binding：**延迟绑定**：在生命周期中与初始定义阶段**不同的阶段**绑定某些参数的值。Defer binding: Binds the value of some parameters at a different phase in the life cycle than the one in which they are initially defined.
 
 ### 3.3.4. Checklist for Modifiability Design and Analsis
 
@@ -441,7 +442,7 @@ $$
 | -------------------- | -------------------- |
 
 ## 3.4. 性能 Performance
-1. 性能与**时间**有关，软件与系统满足时序要求的能力有关。Performance is about time and the software system's ability to meet timing requiements.
+1. 性能与**时间**有关，软件与系统满足时序要求的能力有关。(单位时间内能做多少事情) Performance is about time and the software system's ability to meet timing requiements.
 2. 所有系统都有性能要求，即使未明确表示也是如此。All systems have pertormance requirements, even it they are not explicitly expressed.
 3. 响应时间的两个基本因素 Two basic contributors to the response time
    1. 处理时间(系统**正在**响应时) processing time (when the system is working to response)
@@ -500,6 +501,7 @@ $$
 8. 通过最小化系统的攻击面来**限制暴露**。Limit exposure by minimizing the attack surface of a system.
 9. **加密**数据。Encrypt data.
 10. 正在进行攻击时，撤消对**敏感资源**的访问。Revoke access to sensitive resources when an attack is underway.
+11. Authenticate：认证，Authorize：授权。
 
 ### 3.5.4. 安全性的检查列表 Checklist for Security Design and Analysis
 | ![](img/lec2/34.png) | ![](img/lec2/35.png) |
@@ -561,8 +563,8 @@ $$
    3. 用户启动长时间操作运行时**暂停/恢复** Pause/resume when a user has initiated a long-running operation
    4. 将较低级别的对象**聚合**到一个**组**中，以便可以将操作应用于该组。Aggregate the lower-level objects into a single group, so that the operation may be applied to the group.
 2. **初步支持**系统：确定系统用来预测其自身行为或用户意图的模型。Support system initiaive: Identify the models the system uses to predict either its own behavior or the user's intention.
-   1. 维护**任务模型**：确定**上下文**，以便系统可以了解用户的尝试并提供帮助。Maintain task model: Determine context so the system can have some idea of what the user is attemping and provide assistance.
-   2. 维护**用户模型**：代表用户的关于**系统的知识**。Maintain user model: Represent the user's knowledge of system.
+   1. 维护**任务模型**：确定**上下文**，以便系统可以了解用户的尝试并提供帮助，对任务进行建模。Maintain task model: Determine context so the system can have some idea of what the user is attemping and provide assistance.
+   2. 维护**用户模型**：代表用户的关于**系统的知识**，根据用户行为训练出用户的模型 Maintain user model: Represent the user's knowledge of system.
    3. 维护**系统模型**：确定预期的**系统行为**，以便可以向用户提供适当的反馈。Maintain system model: Determine expected system behavior so that appropriate feedback can be given to the user.
 
 ### 3.7.4. Checklist for Usbility Design and Analysis
@@ -573,31 +575,32 @@ $$
 ## 3.8. 更多的能力 X-ability
 ![](img/lec2/47.png)
 
-# 4. 在架构上重要的要求 Architecturally Significant Requirements
-1. 体系结构上的重要要求(ASR)是对体系结构产生**深远影响**的要求-如果没有这样的要求，体系结构可能会发生**巨大的变化**。An Architecturally Significant Requirement (ASR) is a requirement that will have a profound effect on the architecture - the architecture might well be dramatically different in the absence of such a  requirement.
-2. QA要求越**困难和重要**，就越有可能显着影响体系结构，从而成为ASR。The more difficult and important the QA requirement, the more likely it is to significantly affect the architecture, and hence to be an ASR.
-3. 如何系统地识别将影响架构的ASR和其他因素？How to systematically identify the ASRs and other factors that will shape the architecture?
-   1. 从**需求**文档中收集ASR Gathering ASRs from requirements documents
-   2. 通过采访**利益相关者**来收集ASR Gathering ASRs by interviewing stakeholders
+# 4. 架构攸关的需求 Architecturally Significant Requirements
+1. 架构攸关的需求(ASR)是对体系结构产生**深远影响**的要求-如果没有这样的要求，体系结构可能会发生**巨大的变化**。An Architecturally Significant Requirement (ASR) is a requirement that will have a profound effect on the architecture - the architecture might well be dramatically different in the absence of such a  requirement.
+2. QA需求越**困难和重要**，就越有可能显着影响体系结构，从而成为ASR。The more difficult and important the QA requirement, the more likely it is to significantly affect the architecture, and hence to be an ASR.
+3. 如何系统地识别将影响ASR和其他因素？How to systematically identify the ASRs and other factors that will shape the architecture?
+   1. 从**需求文档**中收集ASR Gathering ASRs from requirements documents
+   2. 通过采访**涉众**来收集ASR Gathering ASRs by interviewing stakeholders
    3. 通过了解**业务目标**来收集ASR Gathering ASRs by understanding the business  goals
-   4. 在**实用程序树**中管理ASR Capturing ASRs in a utility tree
+   4. 在**项目树**中管理ASR Capturing ASRs in a utility tree
 
 ## 4.1. 从需求文档中收集ASR Gathering ASRs from Requirements Documents
 1. 无论是使用"MoSCoW"样式指定需求还是作为"用户故事"的集合来指定需求，这些都不能帮助您确定质量属性。Whether requirements are specifed using the "MoSCoW" style or as a collection of "user stories", neither of these is much help in nailing down quality attributes.
-2. 需求文档通常会以两种方式使架构师**失败**：Requirements documents often fail an architect in two ways:
+2. MoSCoW样式：<a href = "https://blog.csdn.net/cheny_com/article/details/6358456">MoSCoW的样式说明</a>：使用四个级别来定义一个需求的优先级程度
+3. 需求文档通常会以两种方式使架构师**失败**：Requirements documents often fail an architect in two ways:
    1. 需求规范中的大多数内容都不会影响体系结构。Most of what is in a requirements specification does not affect the achitecture.
       1. 系统应模块化 The system shall be modular
       2. 系统应显示出高可用性 The system shall exhibit high usability
       3. 系统应满足用户的性能期望 The system shall meet users' performance expectations
    2. 对架构师有用的大部分内容甚至都没有出现在最佳需求文档中 Much of what is useful to an architect is not in even the best requirements document.
       1. 在收购环境中，需求文档代表的是收购方的利益，而不是开发商的利益。In an acquisition context, the requirements document represents the interests of the acquirer, not that of the developer.
-3. 如果某项要求影响了**关键体系结构设计决策**的制定，那么根据定义，它就是ASR。If a requirement affects the making of a critical architectural design decision, it is by definition an ASR.
+4. 如果某项要求影响了**关键体系结构设计决策**的制定，那么根据定义，它就是ASR。If a requirement affects the making of a critical architectural design decision, it is by definition an ASR.
 
 ## 4.2. 通过和涉众面谈来收集ASR Gathering ASRs by Interviewing Stakeholders
-1. 品质细化工作坊(QAW) Quality Attribute Workshop (QAW)
+1. 质量属性工作坊(QAW) Quality Attribute Workshop (QAW)
    1. QAW演示和介绍 QAW presentation and introductions
    2. 业务任务介绍 Business mission presentation
-   3. 建筑计划介绍 Architectual plan presentation
+   3. 架构计划介绍 Architectual plan presentation
    4. 架构驱动程序的识别：就精简的架构驱动程序列表达成共识，其中包括总体需求，业务驱动程序，约束和质量属性。Identification of architectural drivers: to reach a consensus on a ditilled list of architectural drivers that includes overall requirements, business drivers, constraints, and quality attributes.
    5. 场景集思广益：每个利益相关者都表达一个场景，表示他/她对系统的关注。Scenario brainstorming: each stakeholder expresses a scenario representing his/ her concerns with respect to the system.
    6. 方案合并(合并类似方案) Scenario consolidation (merging similar scenarios)
@@ -607,6 +610,10 @@ $$
 
 ## 4.3. 通过Utility树来获取ASR Capturing ASRs in a Utility Tree
 ![](img/lec2/48.png)
+
+1. 将scenario使用量化的方式来描述，之后才可以使用测试等方式来确定是否实现了要求。
+2. 逐渐对质量需求进行分解，分解到含有量化指标为止。
+3. 然后将分解的结果进行细化
 
 ## 4.4. 基于决策来发现ASR的方法 Persona-Based Approach to exploring ASRs
 

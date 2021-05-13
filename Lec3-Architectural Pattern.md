@@ -10,13 +10,13 @@ Lec3-Architectural Pattern
    1. 专用于特定类型的任务(域) specialized for a particular type of task (domain) generalized for effective use across that domain, and
    2. 普遍适用于该领域的有效使用 composed in a standardized structure (topology)
    3. 有效构建成功应用程序的标准化结构(拓扑)组成 effective for building successful applications.
-2. DSSA是最大限度地重用知识和进行先期开发并因此开发新的体系结构设计的卓越手段。DSSAs are the pre-eminent means for maximal reuse of knowledge and prior development and hence for developing a new architectural design.
+2. DSSA是最大限度地**重用**知识和进行先期开发并因此开发新的体系结构设计的卓越手段。DSSAs are the pre-eminent means for maximal reuse of knowledge and prior development and hence for developing a new architectural design.
 
 # 2. (程序)设计模式 (Program) Design Patterns
 
 ## 2.1. 架构模式 Architectural Patterns
 1. 架构模式 Architecture pattern
-   1. 是在实践中**反复**发现的一揽子设计决策 is a package of design decisions that is found repeatedly in practice,
+   1. 是在实践中**反复**发现的一套设计决策 is a package of design decisions that is found repeatedly in practice,
    2. 具有允许**重复使用**的已知属性，并且描述了**一类**架构 has known properties that permit reuse, and describes a class of architectures.
 2. 架构模式建立了以下之间的**关系**：Architecture pattern establishes a relationship between:
    1. **背景**：世界上经常发生的常见问题，会引起问题 A context: A recurring, common situation in the world that gives rise to a problem.
@@ -27,9 +27,12 @@ Lec3-Architectural Pattern
    2. 永远不会有一个**完整的模式列表** There will never be a complete list of patterns
 
 ## 2.2. 分层模式 Layered Pattern
+对应4+1视图中的逻辑视图
 
 ### 2.2.1. 解决方案
 ![](img/lec3/2.png)
+
+1. 层间的访问必须按照逐层进行访问
 
 ### 2.2.2. 堆栈符号
 ![](img/lec3/3.png)
@@ -40,13 +43,45 @@ Lec3-Architectural Pattern
 ### 2.2.4. 分层模式变体
 ![](img/lec3/5.png)
 
+1. 上面的A、B、C：不是一种分层模式
+   1. 分层的核心是为了实现关注点分离
+   2. 不是分层模式：
+      1. 形成了环状依赖
+      2. 没有实现关注点分离，一个的修改可能有多个原因
+      3. 是一种软件的坏味道
+2. 下面的A、B、C、D：是一种分层模式
+   1. 也可以是一种分层模式，D不期待A的结果且D不期待B的结果
+   2. 而严格意义和其他场景中，不认为是一种分层模式
+
+### 2.2.5. 分层模式对质量属性的影响
+1. 可修改性
+2. 可模块化
+3. 可维护性
+4. 可复用性
+
 ## 2.3. 代理模式 Broker Pattern
+1. Broker可以理解为中间人，撮合双方达成交易。
 
 ### 2.3.1. 解决方案
 ![](img/lec3/6.png)
 
 ### 2.3.2. 概述图
 ![](img/lec3/7.png)
+
+### 2.3.3. 质量属性体现模式的优缺点
+1. 优点
+   1. Interoperability：根本目的，提高Server-Client之间的交互性
+   2. Scaliability：可伸缩和扩展
+   3. Modifiabiliy：
+   4. 两面性：
+      1. Security：代理对象屏蔽了系统内部的具体实现
+      2. Reliability：服务降级和实例重启
+      3. Availability：
+2. 缺点
+   1. Security：成为被攻击的对象
+   2. Reliabiliy：可靠性会降低
+3. 两面性：
+   1. Performance：整体大集群的性能可能会提高(QPS等提高)，但是局部单点性能会下降，多次网络请求、多次匹配，有可能会抵消。
 
 ## 2.4. 模型-视图-控制器模式 Model-View-Controller Pattern(MVC)
 
