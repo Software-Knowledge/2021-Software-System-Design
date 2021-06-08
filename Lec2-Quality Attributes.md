@@ -371,6 +371,8 @@ $$
 | ![](img/lec2/14.png) | ![](img/lec2/15.png) |
 | -------------------- | -------------------- |
 
+![](img/lec2/60.png)
+
 ## 3.2. 互操作性 Interoperability
 1. **互操作性**是指两个或多个系统可以在特定上下文中**通过接口**完全**改变**有意义的信息的程度 Interoperability is about the degree to which two or more systems can usefully exchange meaningful information via interfaces in a particular context.
    1. **交换**数据的能力(**语法**互操作性)Ability to exchange data (syntactic interoperability)
