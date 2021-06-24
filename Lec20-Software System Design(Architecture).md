@@ -81,13 +81,5 @@ Lec20-Software System Design(Architecture)
 1. 简答题、论述题、设计分析题
 2. 英文题目、中文或英文答题
 3. 个别题目可能需画图
-4. 基础内容70%
-5. 高阶内容30%
-
-# 10. Empirical Software Engineering
-1. Know what is scientific research, in particular software engineering research
-2. Understand research methods used in science in general and in software engineering in particular
-3. Be able to design your own research study
-4. Gain first-hand experience from exercising research methods
-5. Identify research opportunities in the topic areas of your interest
-6. Build the basis for your first academic publication
+4. 卷面分数 = 基础内容 60% + 高阶内容 40%
+5. 总评成绩 = 平时作业 40% + 期末考试 60%
