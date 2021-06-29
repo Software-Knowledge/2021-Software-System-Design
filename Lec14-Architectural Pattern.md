@@ -266,7 +266,7 @@ lec14-Architectural Pattern
 ## 2.13. 不同的模式对于质量属性不同的影响
 某一个Pattern会对一些质量属性产生积极影响，但是也会对其他属性产生不好的影响
 
-# 3. 模式与策略 Architecture Putterns and Tactics
+# 3. 模式与策略 Architecture Patterns and Tactics
 1. 策略比模式简单。他们使用**单一的结构或机制**来应对**单一的架构力量** Tactics are simpler than patterns; they use a single structure or mechanism to address a single architectural force.
 2. 模式通常将多个设计决策组合到一个包中 Patterns typically combine multiple design decisions into a package.
 3. 模式和策略共同构成了软件设计师的主要工具 Patterns and tactics together constitute the software architect' s primary tools.

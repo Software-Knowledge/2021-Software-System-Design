@@ -122,8 +122,7 @@ architecture
 ## 3.1. K.Kruchen的4+1视图模型 P.Krutchen's 4+1 View Model
 1. 逻辑视图：描述了体系结构中在体系结构上明显重要的元素以及他们之间的关系Logical view: describes architecturally significant elements of the architecture and the relationships between them
 2. 过程视图：描述了体系结构中的并发和交流元素 Process view: describes the concurrency and communications elements of an architecture.
-3. 物理视图：描述了主要过程和部件是如何映射到应用硬件上的 Physical view: depicts how the major processes and
-components are mapped on to the applications hardware.
+3. 物理视图：描述了主要过程和部件是如何映射到应用硬件上的 Physical view: depicts how the major processes and components are mapped on to the applications hardware.
 4. 发展视图：描述了软件部件是如何在软件内部组织的，比如配置管理工具Development view: captures the internal organization of the software components as held in e.g./ a configuration management tool.
 5. 使用体系结构的情况：描述了体系结构的需求，关系到了超过一个常规的视图Architecture use cases: capture the requirements for the architecture; related to more than one particular view
 6. 四个视图在某一个场景下进行描述

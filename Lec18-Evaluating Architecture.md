@@ -67,7 +67,7 @@ lec18-Evaluating Architecture
 1. 帮助涉众尽早问正确的问题来：It helps stakeholders ask right questions early to:
    1. 识别风险：可能对所需质量属性产生负面影响的架构决策Identify risks: Architectural decisions that may negatively affect desired quality attributes
    2. 发现敏感点：特定质量属性对其敏感的架构决策Find sensitivity points: Architecture decisions to which a particular quality attribute is sensitive to
-   3. 发现**权；衡**：影响多个质量属性的架构决策 Discover tradeoffs: Architecture decision that affect more than one quality attribute
+   3. 发现**权衡**：影响多个质量属性的架构决策 Discover tradeoffs: Architecture decision that affect more than one quality attribute
 2. 发现趋势：架构决策与系统属性预测之间的相关性 Find trends: correlation between architectural decisions and predictions of system properties
 3. 可以通过进一步分析、设计或原型制作来减轻风险 Efforts can be directed to mitigate the found risks by further analysis, design or prototyping
 4. 所做的权衡和支持它们的理由可以适当地记录下来以备将来参考 Tradeoffs made and rationale underpinning them can appropriately be documented for future reference

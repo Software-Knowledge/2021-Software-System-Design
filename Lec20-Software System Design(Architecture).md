@@ -64,7 +64,7 @@ Lec20-Software System Design(Architecture)
       3. Quality views
    2. Documenting views: 1. build stakeholder/view table, 2. combine views, 3. prioritise & stage
    3. Beyond views: documentation info & architecture info (mapping between views)
-   4. Documentation package: views + beyond
+   4. Documentation : views + beyond
 
 # 8. Evaluating Architecture
 1. ATAM: Architecture Tradeoff Analysis Method
